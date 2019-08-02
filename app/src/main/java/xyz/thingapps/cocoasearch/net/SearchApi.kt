@@ -14,7 +14,6 @@ interface SearchApi {
     }
 
     @GET("v2/search/image")
-    @Headers("Authorization: KakaoAK ${BuildConfig.ApiKey}")
     fun getImage(@Query("query") query: String,
                  @Query("sort") sort: String = SORT_ACCURACY,
                  @Query("page") page: Int = 1,

@@ -32,14 +32,14 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField 'String', "ApiKey", getProps("kakaoApiKey")
+            buildConfigField 'String', "API_KEY", getProps("kakaoApiKey")
             resValue 'string', "api_key",  getProps("kakaoApiKey")
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', "ApiKey",  getProps("kakaoApiKey")
+            buildConfigField 'String', "API_KEY",  getProps("kakaoApiKey")
             resValue 'string', "api_key",  getProps("kakaoApiKey")
         }
     }
