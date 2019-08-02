@@ -40,12 +40,11 @@ class ApiLogger : HttpLoggingInterceptor.Logger {
     }
 }
 
-class ApiKeyInterceptor() : Interceptor {
+class ApiKeyInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
         val request = original.newBuilder().apply {
             addHeader("Authorization", "KakaoAK ${BuildConfig.API_KEY}")
-
         }.build()
 
         return chain.proceed(request)
