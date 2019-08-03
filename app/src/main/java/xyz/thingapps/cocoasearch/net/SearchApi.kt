@@ -2,9 +2,7 @@ package xyz.thingapps.cocoasearch.net
 
 import io.reactivex.Observable
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.Query
-import xyz.thingapps.cocoasearch.BuildConfig
 
 interface SearchApi {
 
