@@ -1,6 +1,6 @@
 package xyz.thingapps.cocoasearch.net
 
-data class Result(
+data class SearchResponse(
         val documents: List<Document>,
         val meta: Meta
 )

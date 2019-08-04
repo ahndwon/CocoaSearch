@@ -4,11 +4,20 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class GridItemDecoration(private val sizeGridSpacingPx: Int, private val gridSize: Int) : RecyclerView.ItemDecoration() {
+class GridItemDecoration(
+        private val sizeGridSpacingPx: Int,
+        private val gridSize: Int
+) : RecyclerView.ItemDecoration() {
     private var needLeftSpacing = false
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
-        val frameWidth = ((parent.width - sizeGridSpacingPx.toFloat() * (gridSize - 1)) / gridSize).toInt()
+    override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+    ) {
+        val frameWidth =
+                ((parent.width - sizeGridSpacingPx.toFloat() * (gridSize - 1)) / gridSize).toInt()
         val padding = parent.width / gridSize - frameWidth
         val itemPosition = (view.layoutParams as RecyclerView.LayoutParams).viewAdapterPosition
         if (itemPosition < gridSize) {

@@ -3,6 +3,7 @@ package xyz.thingapps.cocoasearch
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import io.reactivex.disposables.CompositeDisposable
+import xyz.thingapps.cocoasearch.ui.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 

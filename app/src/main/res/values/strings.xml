@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Cocoa Search</string>
     <string name="description_search_results">Search results</string>
+    <string name="retry">Retry</string>
+    <string name="default_search_word">카카오</string>
 </resources>
