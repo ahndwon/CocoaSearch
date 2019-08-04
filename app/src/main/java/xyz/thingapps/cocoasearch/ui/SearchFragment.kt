@@ -1,11 +1,9 @@
 package xyz.thingapps.cocoasearch.ui
 
 import android.os.Bundle
-import android.view.KeyEvent
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
+import android.util.Log
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
@@ -14,7 +12,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import kotlinx.android.synthetic.main.fragment_search.*
+import com.jakewharton.rxbinding3.widget.queryTextChanges
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.rxkotlin.addTo
 import kotlinx.android.synthetic.main.fragment_search.view.*
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.SearchViewModel
@@ -23,6 +24,7 @@ import xyz.thingapps.cocoasearch.repository.NetworkState
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.utils.GridItemDecoration
 import xyz.thingapps.cocoasearch.utils.ServiceLocator
+import java.util.concurrent.TimeUnit
 
 class SearchFragment : Fragment() {
 
@@ -31,15 +33,16 @@ class SearchFragment : Fragment() {
         const val DEFAULT_SEARCH_WORD = "kakao"
     }
 
+    private val disposeBag = CompositeDisposable()
     private lateinit var model: SearchViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
+        setHasOptionsMenu(true)
 
         model = getViewModel()
         initAdapter(view)
         initSwipeToRefresh(view)
-        initSearch(view)
         val searchWord = savedInstanceState?.getString(KEY_SEARCH_WORD) ?: DEFAULT_SEARCH_WORD
         model.showSearchResult(searchWord)
         return view
@@ -62,6 +65,11 @@ class SearchFragment : Fragment() {
         val glide = GlideApp.with(this)
         val adapter = SearchResultAdapter(glide) {
             model.retry()
+        }
+        adapter.onClick = { document ->
+            fragmentManager?.beginTransaction()
+                    ?.replace(R.id.fragmentContainer, ImageDetailFragment.newInstance(document))
+                    ?.commit()
         }
         view.searchRecyclerView.adapter = adapter
         view.searchRecyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
@@ -89,33 +97,37 @@ class SearchFragment : Fragment() {
         outState.putString(KEY_SEARCH_WORD, model.currentSearchWord())
     }
 
-    private fun initSearch(view : View) {
-        view.searchEditText.setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_GO) {
-                updatedSubredditFromInput(view)
-                true
-            } else {
-                false
-            }
-        }
-        view.searchEditText.setOnKeyListener { _, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                updatedSubredditFromInput(view)
-                true
-            } else {
-                false
-            }
-        }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        menu.clear()
+        inflater.inflate(R.menu.options_menu, menu)
+        setupSearchView(menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
-    private fun updatedSubredditFromInput(view: View) {
-        view.searchEditText.text.trim().toString().let {
-            if (it.isNotEmpty()) {
-                if (model.showSearchResult(it)) {
-                    searchRecyclerView.scrollToPosition(0)
-                    (searchRecyclerView.adapter as? SearchResultAdapter)?.submitList(null)
-                }
-            }
-        }
+    private fun setupSearchView(menu: Menu) {
+        val searchItem = menu.findItem(R.id.search)
+        val searchView = searchItem.actionView as? SearchView
+
+        searchView?.queryTextChanges()
+                ?.debounce(500, TimeUnit.MILLISECONDS)
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({ search ->
+                    Log.d(SearchFragment::class.java.name, "search - $search")
+                    search.trim().toString().let {
+                        if (it.isNotEmpty()) {
+                            if (model.showSearchResult(it)) {
+                                view?.searchRecyclerView?.scrollToPosition(0)
+                                (view?.searchRecyclerView?.adapter as? SearchResultAdapter)?.submitList(null)
+                            }
+                        }
+                    }
+                }, { e ->
+                    e.printStackTrace()
+                })?.addTo(disposeBag)
+    }
+
+    override fun onDestroy() {
+        disposeBag.dispose()
+        super.onDestroy()
     }
 }

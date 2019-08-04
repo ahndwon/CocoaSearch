@@ -2,25 +2,19 @@ package xyz.thingapps.cocoasearch
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.activity_main.*
 import xyz.thingapps.cocoasearch.ui.SearchFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private val disposeBag = CompositeDisposable()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
 
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, SearchFragment())
                 .commit()
-    }
-
-    override fun onDestroy() {
-        disposeBag.dispose()
-        super.onDestroy()
     }
 
     companion object {

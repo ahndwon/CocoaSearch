@@ -3,4 +3,14 @@
     <string name="description_search_results">Search results</string>
     <string name="retry">Retry</string>
     <string name="default_search_word">카카오</string>
+
+    <string name="title_filter">필터링</string>
+    <string name="description_filter_image">filter image</string>
+    <string name="filter_accuracy">정확도순</string>
+    <string name="filter_recency">최신순</string>
+    <string name="description_clear_filter">clear filter</string>
+    <string name="developer_name">안동원</string>
+    <string name="title_search_option">search option</string>
+    <string name="description_detail_image">detail image</string>
+
 </resources>
