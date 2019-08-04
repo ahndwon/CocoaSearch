@@ -42,4 +42,9 @@ class ImageDetailFragment : Fragment() {
 
         return view
     }
+
+    override fun onDestroy() {
+        activity?.findViewById<FrameLayout>(R.id.filterBarContainer)?.visibility = View.VISIBLE
+        super.onDestroy()
+    }
 }

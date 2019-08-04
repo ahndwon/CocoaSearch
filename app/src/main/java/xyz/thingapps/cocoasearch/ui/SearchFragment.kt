@@ -31,6 +31,7 @@ class SearchFragment : Fragment() {
     companion object {
         const val KEY_SEARCH_WORD = "search_word"
         const val DEFAULT_SEARCH_WORD = "kakao"
+        const val QUERY_TIMEOUT = 500L
     }
 
     private val disposeBag = CompositeDisposable()
@@ -69,6 +70,7 @@ class SearchFragment : Fragment() {
         adapter.onClick = { document ->
             fragmentManager?.beginTransaction()
                     ?.replace(R.id.fragmentContainer, ImageDetailFragment.newInstance(document))
+                    ?.addToBackStack(ImageDetailFragment::class.java.name)
                     ?.commit()
         }
         view.searchRecyclerView.adapter = adapter
@@ -109,7 +111,7 @@ class SearchFragment : Fragment() {
         val searchView = searchItem.actionView as? SearchView
 
         searchView?.queryTextChanges()
-                ?.debounce(500, TimeUnit.MILLISECONDS)
+                ?.debounce(QUERY_TIMEOUT, TimeUnit.MILLISECONDS)
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({ search ->
                     Log.d(SearchFragment::class.java.name, "search - $search")
