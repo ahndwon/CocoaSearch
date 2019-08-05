@@ -11,13 +11,19 @@ import xyz.thingapps.cocoasearch.repository.NetworkState
 
 class SearchViewModel(private val repository: KakaoImageRepository) : ViewModel() {
     private val searchWord = MutableLiveData<String>()
-    private val searchResult = Transformations.map(searchWord) {
-        repository.imageSearchResult(it, 40)
-    }
+    private val searchResult =
+            Transformations.map(searchWord) {
+                repository.imageSearchResult(it, 40)
+            }
 
-    val posts : LiveData<PagedList<Document>> = Transformations.switchMap(searchResult) { it.pagedList }
-    val networkState : LiveData<NetworkState> = Transformations.switchMap(searchResult) { it.networkState }
-    val refreshState : LiveData<NetworkState> = Transformations.switchMap(searchResult) { it.refreshState }
+    val posts: LiveData<PagedList<Document>> =
+            Transformations.switchMap(searchResult) { it.pagedList }
+
+    val networkState: LiveData<NetworkState> =
+            Transformations.switchMap(searchResult) { it.networkState }
+
+    val refreshState: LiveData<NetworkState> =
+            Transformations.switchMap(searchResult) { it.refreshState }
 
     fun refresh() {
         searchResult.value?.refresh?.invoke()
