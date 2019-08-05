@@ -1,12 +1,15 @@
 package xyz.thingapps.cocoasearch.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.jakewharton.rxbinding3.view.clicks
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
@@ -17,11 +20,14 @@ import xyz.thingapps.cocoasearch.DetailViewModel
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.utils.GlideApp
+import java.util.concurrent.TimeUnit
 
 class ImageDetailFragment : Fragment() {
 
     companion object {
         private const val SEARCH_DOCUMENT = "search_document"
+        private const val TYPE_TEXT_PLAIN = "text/plain"
+        private const val WINDOW_DURATION = 600L
 
         fun newInstance(document: Document): ImageDetailFragment {
             val fragment = ImageDetailFragment()

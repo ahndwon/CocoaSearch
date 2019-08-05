@@ -31,7 +31,7 @@
             android:id="@+id/recommendationTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/basic_margin"
             android:text="@string/search_recommendations"
             android:textStyle="bold"
             style="@style/AppTheme.Headline"
@@ -69,7 +69,7 @@
                 style="@style/Widget.AppCompat.Button.Borderless" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/visitButton"
+                android:id="@+id/websiteButton"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"

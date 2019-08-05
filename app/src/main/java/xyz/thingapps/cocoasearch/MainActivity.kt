@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import xyz.thingapps.cocoasearch.ui.FragmentLifeListener
 import xyz.thingapps.cocoasearch.ui.ImageDetailFragment
 import xyz.thingapps.cocoasearch.ui.SearchFragment
+import xyz.thingapps.cocoasearch.ui.WebViewFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,22 +37,37 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onAttachFragment(fragment: Fragment) {
-        if (fragment is ImageDetailFragment) {
-            fragment.listener = object : FragmentLifeListener {
-                override fun onBirth() {
-                    filterBarContainer.visibility = View.GONE
-                    supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                    supportActionBar?.title = "상세보기"
-                }
+        when (fragment) {
+            is ImageDetailFragment -> {
+                fragment.listener = object : FragmentLifeListener {
+                    override fun onBirth() {
+                        filterBarContainer.visibility = View.GONE
+                        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                        supportActionBar?.title = getString(R.string.see_detail)
+                    }
 
-                override fun onDeath() {
-                    filterBarContainer.visibility = View.VISIBLE
-                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                    supportActionBar?.title = getString(R.string.developer_name)
-                }
+                    override fun onDeath() {
+                        filterBarContainer.visibility = View.VISIBLE
+                        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                        supportActionBar?.title = getString(R.string.developer_name)
+                    }
 
+                }
+            }
+
+            is WebViewFragment -> {
+                fragment.listener = object : FragmentLifeListener {
+                    override fun onBirth() {
+                        filterBarContainer.visibility = View.GONE
+                        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                        supportActionBar?.title = getString(R.string.website)
+                    }
+
+                    override fun onDeath() {
+                        supportActionBar?.title = getString(R.string.see_detail)
+                    }
+                }
             }
         }
     }
-
 }
