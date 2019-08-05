@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                         setFilterBarVisibility(View.GONE)
                         setActionBarHomeUp(true)
                         setActionBarTitle(getString(R.string.see_detail))
+                        appbar.setExpanded(true)
                     }
 
                     override fun onDeath() {
@@ -70,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                         setFilterBarVisibility(View.GONE)
                         setActionBarHomeUp(true)
                         setActionBarTitle(getString(R.string.website))
+                        appbar.setExpanded(true)
                     }
 
                     override fun onDeath() {
@@ -84,6 +86,7 @@ class MainActivity : AppCompatActivity() {
                         setFilterBarVisibility(View.GONE)
                         setActionBarHomeUp(true)
                         setActionBarTitle(getString(R.string.format_hash_tag, title))
+                        appbar.setExpanded(true)
                     }
 
                     override fun onDeath() {
