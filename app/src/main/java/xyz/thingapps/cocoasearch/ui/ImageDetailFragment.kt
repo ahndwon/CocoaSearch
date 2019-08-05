@@ -131,8 +131,24 @@ class ImageDetailFragment : Fragment() {
                     LayoutInflater.from(this@ImageDetailFragment.context)
                             .inflate(R.layout.item_tag, view?.tagLayout, false)
             tagView.tagTextView.text = getString(R.string.format_hash_tag, label)
+
+            setHashTagOnClick(tagView, label)
+
             view?.tagLayout?.addView(tagView)
         }
+    }
+
+    private fun setHashTagOnClick(tagView: View, label: String) {
+        tagView.clicks().observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    fragmentManager?.beginTransaction()
+                            ?.replace(
+                                    R.id.fragmentContainer,
+                                    HashTagFragment.newInstance(label)
+                            )
+                            ?.addToBackStack(HashTagFragment::class.java.name)
+                            ?.commit()
+                }.addTo(disposeBag)
     }
 
     override fun onDestroy() {
