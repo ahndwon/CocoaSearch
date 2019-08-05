@@ -33,14 +33,13 @@ class ImageDetailFragment : Fragment() {
     }
 
     private lateinit var viewModel: DetailViewModel
-    private var document: Document? = null
     private val disposeBag = CompositeDisposable()
     var listener: FragmentLifeListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
-        document = arguments?.getParcelable<Document>(SEARCH_DOCUMENT)
+        viewModel.document = arguments?.getParcelable<Document>(SEARCH_DOCUMENT)
 
         listener?.onBirth()
     }
@@ -51,18 +50,20 @@ class ImageDetailFragment : Fragment() {
             savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_image_detail, container, false)
 
-        document?.let { document ->
+        viewModel.document?.let { document ->
             GlideApp.with(view).load(document.imageUrl)
                     .placeholder(R.drawable.ic_insert_photo_black_48dp)
                     .into(view.detailImageView)
         }
+
+        view.dateTextView.text = viewModel.getDocumentDate()
 
         return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         activity?.let { viewModel.setClassifier(it) }
-        document?.imageUrl?.let { url ->
+        viewModel.document?.imageUrl?.let { url ->
             viewModel.getRecognitions(url).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .map { recognitionList ->

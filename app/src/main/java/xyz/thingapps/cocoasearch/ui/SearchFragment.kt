@@ -67,12 +67,14 @@ class SearchFragment : Fragment() {
         val adapter = SearchResultAdapter(glide) {
             model.retry()
         }
+
         adapter.onClick = { document ->
             fragmentManager?.beginTransaction()
                     ?.replace(R.id.fragmentContainer, ImageDetailFragment.newInstance(document))
                     ?.addToBackStack(ImageDetailFragment::class.java.name)
                     ?.commit()
         }
+
         view.searchRecyclerView.adapter = adapter
         view.searchRecyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         view.searchRecyclerView.addItemDecoration(GridItemDecoration(10, 2))
@@ -109,6 +111,9 @@ class SearchFragment : Fragment() {
     private fun setupSearchView(menu: Menu) {
         val searchItem = menu.findItem(R.id.search)
         val searchView = searchItem.actionView as? SearchView
+
+        searchView?.isIconifiedByDefault = false
+//        searchView?.setQuery(getString(R.string.default_search_word), false)
 
         searchView?.queryTextChanges()
                 ?.debounce(QUERY_TIMEOUT, TimeUnit.MILLISECONDS)
