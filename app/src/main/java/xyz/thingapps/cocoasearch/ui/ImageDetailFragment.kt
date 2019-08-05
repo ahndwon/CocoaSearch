@@ -58,7 +58,39 @@ class ImageDetailFragment : Fragment() {
 
         view.dateTextView.text = viewModel.getDocumentDate()
 
+        setupButtons(view)
+
         return view
+    }
+
+    private fun setupButtons(view: View) {
+        viewModel.document?.docUrl?.let { url ->
+            setButtonClick(view.websiteButton) {
+                fragmentManager?.beginTransaction()
+                        ?.replace(
+                                R.id.fragmentContainer,
+                                WebViewFragment.newInstance(url)
+                        )
+                        ?.addToBackStack(WebViewFragment::class.java.name)
+                        ?.commit()
+            }
+
+            setButtonClick(view.shareButton) {
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.type = TYPE_TEXT_PLAIN
+                intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_message, url))
+                startActivity(Intent.createChooser(intent, getString(R.string.share)))
+            }
+        }
+    }
+
+    private fun setButtonClick(button: Button, onClick: (() -> Unit)) {
+        button.clicks()
+                .throttleFirst(WINDOW_DURATION, TimeUnit.MILLISECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    onClick.invoke()
+                }.addTo(disposeBag)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
