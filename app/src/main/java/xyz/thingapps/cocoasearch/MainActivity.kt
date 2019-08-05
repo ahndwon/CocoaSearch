@@ -6,10 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
-import xyz.thingapps.cocoasearch.ui.FragmentLifeListener
-import xyz.thingapps.cocoasearch.ui.ImageDetailFragment
-import xyz.thingapps.cocoasearch.ui.SearchFragment
-import xyz.thingapps.cocoasearch.ui.WebViewFragment
+import xyz.thingapps.cocoasearch.ui.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -61,6 +58,20 @@ class MainActivity : AppCompatActivity() {
                         filterBarContainer.visibility = View.GONE
                         supportActionBar?.setDisplayHomeAsUpEnabled(true)
                         supportActionBar?.title = getString(R.string.website)
+                    }
+
+                    override fun onDeath() {
+                        supportActionBar?.title = getString(R.string.see_detail)
+                    }
+                }
+            }
+
+            is HashTagFragment -> {
+                fragment.listener = object : HashTagFragment.TitleFragmentLifeListener {
+                    override fun onBirth(title: String) {
+                        filterBarContainer.visibility = View.GONE
+                        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                        supportActionBar?.title = getString(R.string.format_hash_tag, title)
                     }
 
                     override fun onDeath() {

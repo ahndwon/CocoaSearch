@@ -38,11 +38,13 @@ class HashTagFragment : Fragment() {
 
     private val disposeBag = CompositeDisposable()
     private lateinit var model: HashTagViewModel
+    var listener: TitleFragmentLifeListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         setHasOptionsMenu(true)
         val hashTag = arguments?.getString(HASH_TAG) ?: ""
+        listener?.onBirth(hashTag)
         model = getViewModel(hashTag)
         initAdapter(view)
         initSwipeToRefresh(view)
@@ -98,6 +100,12 @@ class HashTagFragment : Fragment() {
 
     override fun onDestroy() {
         disposeBag.dispose()
+        listener?.onDeath()
         super.onDestroy()
+    }
+
+    interface TitleFragmentLifeListener {
+        fun onBirth(title: String)
+        fun onDeath()
     }
 }
