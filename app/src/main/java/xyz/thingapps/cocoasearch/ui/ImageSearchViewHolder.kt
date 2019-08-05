@@ -35,13 +35,6 @@ class ImageSearchViewHolder(view: View, private val glide: GlideRequests)
                     onClick?.invoke(item)
                 }
             }
-
-
-//                item?.docUrl?.let { url ->
-//                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-//                    context.startActivity(intent)
-//                }
-//            }
         }
     }
 
