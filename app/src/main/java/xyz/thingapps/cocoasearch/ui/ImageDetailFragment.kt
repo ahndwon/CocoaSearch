@@ -5,8 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,6 +12,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_image_detail.view.*
+import kotlinx.android.synthetic.main.item_tag.view.*
 import xyz.thingapps.cocoasearch.DetailViewModel
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.net.Document
@@ -36,17 +35,21 @@ class ImageDetailFragment : Fragment() {
     private lateinit var viewModel: DetailViewModel
     private var document: Document? = null
     private val disposeBag = CompositeDisposable()
+    var listener: FragmentLifeListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
+        document = arguments?.getParcelable<Document>(SEARCH_DOCUMENT)
+
+        listener?.onBirth()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_image_detail, container, false)
-        activity?.findViewById<FrameLayout>(R.id.filterBarContainer)?.visibility = View.GONE
-
-        document = arguments?.getParcelable<Document>(SEARCH_DOCUMENT)
 
         document?.let { document ->
             GlideApp.with(view).load(document.imageUrl)
@@ -66,10 +69,17 @@ class ImageDetailFragment : Fragment() {
                         recognitionList.map { it.title }
                     }
                     .subscribe({ labels ->
-                        Log.d(ImageDetailFragment::class.java.name, "getRecognition success : $labels")
+                        Log.d(
+                                ImageDetailFragment::class.java.name,
+                                "getRecognition success : $labels"
+                        )
                         createTags(labels)
                     }, { e ->
-                        Log.d(ImageDetailFragment::class.java.name, "getRecognition failed : ", e)
+                        Log.d(
+                                ImageDetailFragment::class.java.name,
+                                "getRecognition failed : ",
+                                e
+                        )
                     }).addTo(disposeBag)
         }
 
@@ -77,15 +87,17 @@ class ImageDetailFragment : Fragment() {
     }
 
     private fun createTags(labels: List<String>) {
-        labels.forEach {
-            val tagView = TextView(this@ImageDetailFragment.context)
-            tagView.text = it
+        labels.forEach { label ->
+            val tagView =
+                    LayoutInflater.from(this@ImageDetailFragment.context)
+                            .inflate(R.layout.item_tag, view?.tagLayout, false)
+            tagView.tagTextView.text = getString(R.string.format_hash_tag, label)
             view?.tagLayout?.addView(tagView)
         }
     }
 
     override fun onDestroy() {
-        activity?.findViewById<FrameLayout>(R.id.filterBarContainer)?.visibility = View.VISIBLE
+        listener?.onDeath()
         disposeBag.dispose()
         super.onDestroy()
     }

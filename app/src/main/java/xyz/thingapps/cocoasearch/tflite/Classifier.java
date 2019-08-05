@@ -46,7 +46,7 @@ public abstract class Classifier {
     /**
      * Number of results to show in the UI.
      */
-    private static final int MAX_RESULTS = 3;
+    private static final int MAX_RESULTS = 5;
     /**
      * Dimensions of inputs.
      */
@@ -194,7 +194,7 @@ public abstract class Classifier {
         // Find the best classifications.
         PriorityQueue<Recognition> pq =
                 new PriorityQueue<Recognition>(
-                        3,
+                        MAX_RESULTS,
                         new Comparator<Recognition>() {
                             @Override
                             public int compare(Recognition lhs, Recognition rhs) {
@@ -203,10 +203,11 @@ public abstract class Classifier {
                             }
                         });
         for (int i = 0; i < labels.size(); ++i) {
+            labels.size();
             pq.add(
                     new Recognition(
                             "" + i,
-                            labels.size() > i ? labels.get(i) : "unknown",
+                            labels.get(i),
                             getNormalizedProbability(i),
                             null));
         }
