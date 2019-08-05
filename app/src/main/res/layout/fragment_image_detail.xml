@@ -18,12 +18,26 @@
             android:contentDescription="@string/description_detail_image"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/recommendationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="추천 검색어"
+            android:textStyle="bold"
+            style="@style/AppTheme.Headline"
+            app:layout_constraintTop_toBottomOf="@id/detailImageView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/tagLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/detailImageView" />
+            app:flexWrap="wrap"
+            app:alignItems="stretch"
+            app:alignContent="stretch"
+            app:layout_constraintTop_toBottomOf="@id/recommendationTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
