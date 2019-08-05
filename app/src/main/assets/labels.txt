@@ -1,1001 +1,1001 @@
-background
-tench
-goldfish
-great white shark
-tiger shark
-hammerhead
-electric ray
-stingray
-cock
-hen
-ostrich
-brambling
-goldfinch
-house finch
-junco
-indigo bunting
-robin
-bulbul
-jay
-magpie
-chickadee
-water ouzel
-kite
-bald eagle
-vulture
-great grey owl
-European fire salamander
-common newt
-eft
-spotted salamander
-axolotl
-bullfrog
-tree frog
-tailed frog
-loggerhead
-leatherback turtle
-mud turtle
-terrapin
-box turtle
-banded gecko
-common iguana
-American chameleon
-whiptail
-agama
-frilled lizard
-alligator lizard
-Gila monster
-green lizard
-African chameleon
-Komodo dragon
-African crocodile
-American alligator
-triceratops
-thunder snake
-ringneck snake
-hognose snake
-green snake
-king snake
-garter snake
-water snake
-vine snake
-night snake
-boa constrictor
-rock python
-Indian cobra
-green mamba
-sea snake
-horned viper
-diamondback
-sidewinder
-trilobite
-harvestman
-scorpion
-black and gold garden spider
-barn spider
-garden spider
-black widow
-tarantula
-wolf spider
-tick
-centipede
-black grouse
-ptarmigan
-ruffed grouse
-prairie chicken
-peacock
-quail
-partridge
-African grey
-macaw
-sulphur-crested cockatoo
-lorikeet
-coucal
-bee eater
-hornbill
-hummingbird
-jacamar
-toucan
-drake
-red-breasted merganser
-goose
-black swan
-tusker
-echidna
-platypus
-wallaby
-koala
-wombat
-jellyfish
-sea anemone
-brain coral
-flatworm
-nematode
-conch
-snail
-slug
-sea slug
-chiton
-chambered nautilus
-Dungeness crab
-rock crab
-fiddler crab
-king crab
-American lobster
-spiny lobster
-crayfish
-hermit crab
-isopod
-white stork
-black stork
-spoonbill
-flamingo
-little blue heron
-American egret
-bittern
-crane
-limpkin
-European gallinule
-American coot
-bustard
-ruddy turnstone
-red-backed sandpiper
-redshank
-dowitcher
-oystercatcher
-pelican
-king penguin
-albatross
-grey whale
-killer whale
-dugong
-sea lion
-Chihuahua
-Japanese spaniel
-Maltese dog
-Pekinese
-Shih-Tzu
-Blenheim spaniel
-papillon
-toy terrier
-Rhodesian ridgeback
-Afghan hound
-basset
-beagle
-bloodhound
-bluetick
-black-and-tan coonhound
-Walker hound
-English foxhound
-redbone
-borzoi
-Irish wolfhound
-Italian greyhound
-whippet
-Ibizan hound
-Norwegian elkhound
-otterhound
-Saluki
-Scottish deerhound
-Weimaraner
-Staffordshire bullterrier
-American Staffordshire terrier
-Bedlington terrier
-Border terrier
-Kerry blue terrier
-Irish terrier
-Norfolk terrier
-Norwich terrier
-Yorkshire terrier
-wire-haired fox terrier
-Lakeland terrier
-Sealyham terrier
-Airedale
-cairn
-Australian terrier
-Dandie Dinmont
-Boston bull
-miniature schnauzer
-giant schnauzer
-standard schnauzer
-Scotch terrier
-Tibetan terrier
-silky terrier
-soft-coated wheaten terrier
-West Highland white terrier
-Lhasa
-flat-coated retriever
-curly-coated retriever
-golden retriever
-Labrador retriever
-Chesapeake Bay retriever
-German short-haired pointer
-vizsla
-English setter
-Irish setter
-Gordon setter
-Brittany spaniel
-clumber
-English springer
-Welsh springer spaniel
-cocker spaniel
-Sussex spaniel
-Irish water spaniel
-kuvasz
-schipperke
-groenendael
-malinois
-briard
-kelpie
-komondor
-Old English sheepdog
-Shetland sheepdog
-collie
-Border collie
-Bouvier des Flandres
-Rottweiler
-German shepherd
-Doberman
-miniature pinscher
-Greater Swiss Mountain dog
-Bernese mountain dog
-Appenzeller
-EntleBucher
-boxer
-bull mastiff
-Tibetan mastiff
-French bulldog
-Great Dane
-Saint Bernard
-Eskimo dog
-malamute
-Siberian husky
-dalmatian
-affenpinscher
-basenji
-pug
-Leonberg
-Newfoundland
-Great Pyrenees
-Samoyed
-Pomeranian
-chow
-keeshond
-Brabancon griffon
-Pembroke
-Cardigan
-toy poodle
-miniature poodle
-standard poodle
-Mexican hairless
-timber wolf
-white wolf
-red wolf
-coyote
-dingo
-dhole
-African hunting dog
-hyena
-red fox
-kit fox
-Arctic fox
-grey fox
-tabby
-tiger cat
-Persian cat
-Siamese cat
-Egyptian cat
-cougar
-lynx
-leopard
-snow leopard
-jaguar
-lion
-tiger
-cheetah
-brown bear
-American black bear
-ice bear
-sloth bear
-mongoose
-meerkat
-tiger beetle
-ladybug
-ground beetle
-long-horned beetle
-leaf beetle
-dung beetle
-rhinoceros beetle
-weevil
-fly
-bee
-ant
-grasshopper
-cricket
-walking stick
-cockroach
-mantis
-cicada
-leafhopper
-lacewing
-dragonfly
-damselfly
-admiral
-ringlet
-monarch
-cabbage butterfly
-sulphur butterfly
-lycaenid
-starfish
-sea urchin
-sea cucumber
-wood rabbit
-hare
-Angora
-hamster
-porcupine
-fox squirrel
-marmot
-beaver
-guinea pig
-sorrel
-zebra
-hog
-wild boar
-warthog
-hippopotamus
-ox
-water buffalo
-bison
-ram
-bighorn
-ibex
-hartebeest
-impala
-gazelle
-Arabian camel
-llama
-weasel
-mink
-polecat
-black-footed ferret
-otter
-skunk
-badger
-armadillo
-three-toed sloth
-orangutan
-gorilla
-chimpanzee
-gibbon
-siamang
-guenon
-patas
-baboon
-macaque
-langur
-colobus
-proboscis monkey
-marmoset
-capuchin
-howler monkey
-titi
-spider monkey
-squirrel monkey
-Madagascar cat
-indri
-Indian elephant
-African elephant
-lesser panda
-giant panda
-barracouta
-eel
-coho
-rock beauty
-anemone fish
-sturgeon
-gar
-lionfish
-puffer
-abacus
-abaya
-academic gown
-accordion
-acoustic guitar
-aircraft carrier
-airliner
-airship
-altar
-ambulance
-amphibian
-analog clock
-apiary
-apron
-ashcan
-assault rifle
-backpack
-bakery
-balance beam
-balloon
-ballpoint
-Band Aid
-banjo
-bannister
-barbell
-barber chair
-barbershop
-barn
-barometer
-barrel
-barrow
-baseball
-basketball
-bassinet
-bassoon
-bathing cap
-bath towel
-bathtub
-beach wagon
-beacon
-beaker
-bearskin
-beer bottle
-beer glass
-bell cote
-bib
-bicycle-built-for-two
-bikini
-binder
-binoculars
-birdhouse
-boathouse
-bobsled
-bolo tie
-bonnet
-bookcase
-bookshop
-bottlecap
-bow
-bow tie
-brass
-brassiere
-breakwater
-breastplate
-broom
-bucket
-buckle
-bulletproof vest
-bullet train
-butcher shop
-cab
-caldron
-candle
-cannon
-canoe
-can opener
-cardigan
-car mirror
-carousel
-carpenter's kit
-carton
-car wheel
-cash machine
-cassette
-cassette player
-castle
-catamaran
-CD player
-cello
-cellular telephone
-chain
-chainlink fence
-chain mail
-chain saw
-chest
-chiffonier
-chime
-china cabinet
-Christmas stocking
-church
-cinema
-cleaver
-cliff dwelling
-cloak
-clog
-cocktail shaker
-coffee mug
-coffeepot
-coil
-combination lock
-computer keyboard
-confectionery
-container ship
-convertible
-corkscrew
-cornet
-cowboy boot
-cowboy hat
-cradle
-crane
-crash helmet
-crate
-crib
-Crock Pot
-croquet ball
-crutch
-cuirass
-dam
-desk
-desktop computer
-dial telephone
-diaper
-digital clock
-digital watch
-dining table
-dishrag
-dishwasher
-disk brake
-dock
-dogsled
-dome
-doormat
-drilling platform
-drum
-drumstick
-dumbbell
-Dutch oven
-electric fan
-electric guitar
-electric locomotive
-entertainment center
-envelope
-espresso maker
-face powder
-feather boa
-file
-fireboat
-fire engine
-fire screen
-flagpole
-flute
-folding chair
-football helmet
-forklift
-fountain
-fountain pen
-four-poster
-freight car
-French horn
-frying pan
-fur coat
-garbage truck
-gasmask
-gas pump
-goblet
-go-kart
-golf ball
-golfcart
-gondola
-gong
-gown
-grand piano
-greenhouse
-grille
-grocery store
-guillotine
-hair slide
-hair spray
-half track
-hammer
-hamper
-hand blower
-hand-held computer
-handkerchief
-hard disc
-harmonica
-harp
-harvester
-hatchet
-holster
-home theater
-honeycomb
-hook
-hoopskirt
-horizontal bar
-horse cart
-hourglass
-iPod
-iron
-jack-o'-lantern
-jean
-jeep
-jersey
-jigsaw puzzle
-jinrikisha
-joystick
-kimono
-knee pad
-knot
-lab coat
-ladle
-lampshade
-laptop
-lawn mower
-lens cap
-letter opener
-library
-lifeboat
-lighter
-limousine
-liner
-lipstick
-Loafer
-lotion
-loudspeaker
-loupe
-lumbermill
-magnetic compass
-mailbag
-mailbox
-maillot
-maillot
-manhole cover
-maraca
-marimba
-mask
-matchstick
-maypole
-maze
-measuring cup
-medicine chest
-megalith
-microphone
-microwave
-military uniform
-milk can
-minibus
-miniskirt
-minivan
-missile
-mitten
-mixing bowl
-mobile home
-Model T
-modem
-monastery
-monitor
-moped
-mortar
-mortarboard
-mosque
-mosquito net
-motor scooter
-mountain bike
-mountain tent
-mouse
-mousetrap
-moving van
-muzzle
-nail
-neck brace
-necklace
-nipple
-notebook
-obelisk
-oboe
-ocarina
-odometer
-oil filter
-organ
-oscilloscope
-overskirt
-oxcart
-oxygen mask
-packet
-paddle
-paddlewheel
-padlock
-paintbrush
-pajama
-palace
-panpipe
-paper towel
-parachute
-parallel bars
-park bench
-parking meter
-passenger car
-patio
-pay-phone
-pedestal
-pencil box
-pencil sharpener
-perfume
-Petri dish
-photocopier
-pick
-pickelhaube
-picket fence
-pickup
-pier
-piggy bank
-pill bottle
-pillow
-ping-pong ball
-pinwheel
-pirate
-pitcher
-plane
-planetarium
-plastic bag
-plate rack
-plow
-plunger
-Polaroid camera
-pole
-police van
-poncho
-pool table
-pop bottle
-pot
-potter's wheel
-power drill
-prayer rug
-printer
-prison
-projectile
-projector
-puck
-punching bag
-purse
-quill
-quilt
-racer
-racket
-radiator
-radio
-radio telescope
-rain barrel
-recreational vehicle
-reel
-reflex camera
-refrigerator
-remote control
-restaurant
-revolver
-rifle
-rocking chair
-rotisserie
-rubber eraser
-rugby ball
-rule
-running shoe
-safe
-safety pin
-saltshaker
-sandal
-sarong
-sax
-scabbard
-scale
-school bus
-schooner
-scoreboard
-screen
-screw
-screwdriver
-seat belt
-sewing machine
-shield
-shoe shop
-shoji
-shopping basket
-shopping cart
-shovel
-shower cap
-shower curtain
-ski
-ski mask
-sleeping bag
-slide rule
-sliding door
-slot
-snorkel
-snowmobile
-snowplow
-soap dispenser
-soccer ball
-sock
-solar dish
-sombrero
-soup bowl
-space bar
-space heater
-space shuttle
-spatula
-speedboat
-spider web
-spindle
-sports car
-spotlight
-stage
-steam locomotive
-steel arch bridge
-steel drum
-stethoscope
-stole
-stone wall
-stopwatch
-stove
-strainer
-streetcar
-stretcher
-studio couch
-stupa
-submarine
-suit
-sundial
-sunglass
-sunglasses
-sunscreen
-suspension bridge
-swab
-sweatshirt
-swimming trunks
-swing
-switch
-syringe
-table lamp
-tank
-tape player
-teapot
-teddy
-television
-tennis ball
-thatch
-theater curtain
-thimble
-thresher
-throne
-tile roof
-toaster
-tobacco shop
-toilet seat
-torch
-totem pole
-tow truck
-toyshop
-tractor
-trailer truck
-tray
-trench coat
-tricycle
-trimaran
-tripod
-triumphal arch
-trolleybus
-trombone
-tub
-turnstile
-typewriter keyboard
-umbrella
-unicycle
-upright
-vacuum
-vase
-vault
-velvet
-vending machine
-vestment
-viaduct
-violin
-volleyball
-waffle iron
-wall clock
-wallet
-wardrobe
-warplane
-washbasin
-washer
-water bottle
-water jug
-water tower
-whiskey jug
-whistle
-wig
-window screen
-window shade
-Windsor tie
-wine bottle
-wing
-wok
-wooden spoon
-wool
-worm fence
-wreck
-yawl
-yurt
-web site
-comic book
-crossword puzzle
-street sign
-traffic light
-book jacket
-menu
-plate
-guacamole
-consomme
-hot pot
-trifle
-ice cream
-ice lolly
-French loaf
-bagel
-pretzel
-cheeseburger
-hotdog
-mashed potato
-head cabbage
-broccoli
-cauliflower
-zucchini
-spaghetti squash
-acorn squash
-butternut squash
-cucumber
-artichoke
-bell pepper
-cardoon
-mushroom
-Granny Smith
-strawberry
-orange
-lemon
-fig
-pineapple
-banana
-jackfruit
-custard apple
-pomegranate
-hay
-carbonara
-chocolate sauce
-dough
-meat loaf
-pizza
-potpie
-burrito
-red wine
-espresso
-cup
-eggnog
-alp
-bubble
-cliff
-coral reef
-geyser
-lakeside
-promontory
-sandbar
-seashore
-valley
-volcano
-ballplayer
-groom
-scuba diver
-rapeseed
-daisy
-yellow lady's slipper
-corn
-acorn
-hip
-buckeye
-coral fungus
-agaric
-gyromitra
-stinkhorn
-earthstar
-hen-of-the-woods
-bolete
-ear
-toilet tissue
+배경
+잉어
+금붕어
+백상어
+호랑이 상어
+귀상어
+전기 가오리
+가오리
+수탉
+암탉
+타조
+되새
+오색방울새
+멕시코양지니
+눈방울새
+유리무당새
+개똥지빠귀
+벌불
+어치
+까치
+박새
+물까마귀
+솔개
+대머리 독수리
+시체매
+큰 회색 올빼미
+유럽 ​​붉은 도롱뇽
+일반 영원
+에프 도롱뇽
+얼룩 도롱뇽
+아흘로틀 도롱뇽
+황소 개구리
+청개구리
+꼬리 개구리
+붉은바다거북
+장수거북
+진흙 거북
+테라핀
+상자 거북
+줄무늬 게코
+일반적인 이구아나
+미국 카멜레온
+채찍꼬리도마뱀
+아가마도마뱀
+호주산 목도리도마뱀
+악어 도마뱀
+미국독 도마뱀
+녹색 도마뱀
+아프리카 카멜레온
+코모도 드래곤
+아프리카 악어
+미국 악어
+트리케라톱스
+썬더 뱀
+목도리뱀
+돼지코뱀
+초록뱀
+킹스네이크
+가터스 뱀
+물뱀
+포도 나무 뱀
+나이트스네이크
+보아뱀
+바위 비단뱀
+인도 코브라
+녹색 맘바
+바다뱀
+뿔뱀
+방울뱀
+사이드와인더 독사
+삼엽충
+장님 거미류
+전갈
+검은 색과 금색 정원 거미
+헛간 거미
+정원 거미
+흑인 과부
+타란툴라 거미
+늑대 거미
+진드기
+지네
+검은 멧닭
+뇌조
+목도리뇌조
+초원들꿩
+공작
+메추라기
+자고새
+아프리카 회색 앵무새
+잉꼬
+황 볏 앵무새
+잉꼬새
+뻐꾸기사촌
+벌잡이새
+코뿔새 류
+벌새
+재커마르
+큰부리새
+수오리
+붉은 가슴 비오리
+거위
+검은 백조
+토스카
+바늘 두더지
+오리너구리
+왈라비
+코알라
+웜뱃
+해파리
+말미잘
+두뇌 산호
+납작벌레
+선충류
+소라고둥
+달팽이
+민달팽이
+바다 민달팽이
+키튼 조개
+앵무조개 
+식용 게
+바위 게
+피들러 게
+왕게
+미국 가재
+가시 랍스터
+왕새우
+소라게
+등각류
+흰 황새
+검은 황새
+저어새
+플라밍고
+작은 블루 헤론
+미국 백로
+알락해오라기
+두루미
+뜸부깃과 새
+유럽 쇠물닭
+미국 물닭
+느시
+꼬까도요
+민물도요
+붉은발도요
+큰부리도요
+검은머리물떼새
+펠리컨
+킹 펭귄
+신천옹
+회색 고래
+범고래
+듀공
+바다 사자
+치와와
+일본 스패니얼 개
+몰타 개
+페키니즈 개
+시추
+블레넘 하니엘
+빠삐용 스패니얼
+토이 테리어
+로디지안 리즈백 사냥개
+아프간 하운드
+바셋 개
+비글
+블러드하운드
+아메리칸 하운드
+아메리카너구리 사냥용 개
+워커 하운드
+잉글리쉬 폭스하운드
+레드본 사냥개
+보르조이 개
+아이랜드 울프하운드
+이탈리아 그레이하운드
+휘펫
+이비잔 하운드
+노르웨이 엘크 하운드
+수달사냥개
+살루키
+스코틀랜드 디어하운드
+바이마라너 개
+스태퍼드셔 불테리어
+아메리칸 스태퍼드셔 테리어
+베드링턴 테리어
+보더 테리어
+케리 블루 테리어
+아일랜드 테리어
+노퍽 테리어
+노리치 테리어
+요크셔 테리어
+철사 머리 폭스테리어
+레이크랜드 테리어
+실리엄 테리어
+에어데일 테리어
+케언 테리어 개
+호주 테리어
+댄디딘몬트 테리어
+보스톤 테리어
+미니어처 슈나우저
+자이언트 슈나우저
+표준 슈나우저
+스카치 테리어
+티베트 테리어
+부드러운 테리어
+연질 코팅 된 밀 테리어
+웨스트 하이랜드 화이트 테리어
+라사 테리어
+평면 코팅 리트리버
+곱슬 도장 된 리트리버
+골든 리트리버
+래브라도 리트리버
+체사 피크 만 리트리버
+독일 단발 포인터 개
+비즐라 개
+영어 세터 개
+아이리쉬 세터 개
+고든 세터 개
+브리 타니 스패니얼
+클럼버 스패니얼 개
+잉글리쉬 스패니얼 개
+웨일스 스프링거 스패니얼 개
+코커 스패니얼 개
+서섹스 스패니얼 개
+아일랜드 워터 스패니얼 개
+쿠바스견
+시퍼키 개
+그루넨달 개
+벨지앙 말리누아 개
+브리아르 개
+켈피 개
+코몬도르 개
+올드 잉글리시 양치기 개
+셰틀랜드 양치기 개
+콜리
+보더 콜리
+부르 비 데 플랑드르 개
+로트와일러 개
+독일 셰퍼드
+도베르만
+미니어처 핀셔
+그레이터 스위스 마운틴 개
+베르네 산악 개
+아펜 첼러 개
+엔틀 부셔 개
+복서 개 
+황소 마스티프 개
+티베트 마스티프 개
+프랑스 불독
+그레이트 데인 개
+세인트 버나드 개
+에스키모 개
+말라뮤트
+시베리안 허스키
+달마시안
+아펜피셔 개
+바센지 개
+퍼그
+레온베르거 개
+뉴펀들랜드 개
+그레이트 피레네 개
+사모 예드
+포메라니안
+차우차우 개
+케이스혼드 개 
+브라반송 개
+펨브룩 웰시코기
+카디건 웰시코기
+장난감 푸들
+미니어처 푸들
+표준 푸들
+멕시코 사나이
+목재 늑대
+흰 늑대
+붉은 늑대
+코요테
+들개
+돌
+아프리카 사냥개
+하이에나
+붉은 여우
+키트 여우
+북극 여우
+회색 여우
+태비
+호랑이 고양이
+페르시아 고양이
+샴 고양이
+이집트 고양이
+쿠거
+스라소니
+표범
+눈표범
+재규어
+사자
+호랑이
+치타
+갈색 곰
+미국 흑곰
+아이스 베어
+느림보 곰
+몽구스
+미어캣
+호랑이 비틀
+무당 벌레
+땅 딱정벌레
+긴 뿔이 달린 딱정벌레
+잎벌레
+배설물
+코뿔소 딱정벌레
+바구미
+파리
+벌
+개미
+메뚜기
+귀뚜라미
+지팡이
+바퀴벌레
+사마귀
+매미
+매미충
+풀잠자리
+잠자리
+실잠자리
+해군 대장
+작은 고리
+군주
+양배추 나비
+유황 나비
+남방부전나비
+불가사리
+성게
+해삼
+숲 토끼
+토끼
+앙고라
+햄스터
+호저
+여우 다람쥐
+마르모트
+비버
+기니피그
+공골말
+얼룩말
+돼지
+야생 멧돼지
+멧돼지
+하마
+소
+물소
+바이슨
+숫양
+큰 뿔뿔이
+아이벡스
+큰 영양
+임팔라
+가젤 영양
+아라비아 낙타
+라마
+족제비
+밍크
+족장
+검은 족제비
+수달
+스컹크
+오소리
+아르마딜로
+세발가락 나무늘보
+오랑우탄
+고릴라
+침팬지
+긴팔원숭이
+큰긴팔원숭이
+긴꼬리원숭이
+파타스원숭이
+개코원숭이
+마카크
+랑구르
+콜로부스 원숭이
+긴코원숭이
+마모셋
+흰목꼬리감기원숭이
+짖는원숭이
+티티원숭이
+거미 원숭이
+다람쥐 원숭이
+마다가스카르 고양이
+여우원숭이
+인도 코끼리
+아프리카 코끼리
+레서 팬더
+자이언트 팬더
+바라쿠타
+뱀장어
+은연어
+나비고기과의 물고기
+말미잘
+철갑 상어
+가발
+쏠배감펭
+호흡기
+주판
+아바 야
+학원 가운
+아코디언
+어쿠스틱 기타
+항공 모함
+여객기
+비행선
+제단
+구급차
+수륙 양용 비행기
+아날로그 시계
+양봉장
+앞치마
+재떨이
+돌격 소총
+배낭
+빵집
+저울대
+풍선
+볼펜
+밴드 원조
+밴조
+난간
+바벨
+이발사
+이발소
+외양간
+기압계
+통
+무덤
+야구
+농구
+요람
+바순
+입욕 캡
+목욕 수건
+목욕통
+해변 왜건
+봉홧불
+비커
+곰 가죽
+맥주병
+맥주 유리
+종첨탑
+턱받이
+2인용 자전거
+비키니
+접합재
+쌍안경
+새집
+보트 하우스
+봅슬레이
+볼로 넥타이
+보닛
+책장
+서점
+병 뚜껑
+활
+나비 넥타이
+놋쇠
+브래지어
+방파제
+흉갑
+비
+버킷
+버클
+방탄 조끼
+초고속 열차
+푸줏간
+택시
+가마솥
+양초
+대포
+카누
+병따개
+카디건
+자동차 거울
+회전 목마
+목수의 킷
+판지 상자
+자동차 바퀴
+현금 인출기
+카세트
+카세트 플레이어
+성
+뗏목
+CD 플레이어
+첼로
+휴대 전화
+체인
+체인 링크 울타리
+체인 메일
+체인 톱
+가슴
+서랍장
+차임
+중국 캐비닛
+크리스마스 스타킹
+교회
+영화
+큰 식칼
+절벽 주거
+망토
+나막신
+칵테일 셰이커
+커피 머그잔
+커피 포트
+코일
+조합 잠금
+컴퓨터 키보드
+과자
+컨테이너 선
+바꿀 수 있는
+빙빙 돌리다
+코넷
+카우보이 부츠
+카우보이 모자
+요람
+기중기
+충돌 헬멧
+나무 상자
+어린이 침대
+도기 냄비
+크로켓 볼
+버팀목
+동체 갑옷
+댐
+책상
+데스크톱 컴퓨터
+전화를 걸다
+기저귀
+디지털 시계
+디지털 시계
+식탁
+행주
+식기 세척기
+디스크 브레이크
+선창
+개 썰매
+둥근 천장
+현창
+시추 플랫폼
+북
+북채
+아령
+고기 굽는 그릇
+선풍기
+전자 기타
+전기 기관차
+엔터테인먼트 센터
+봉투
+에스프레소 메이커
+얼굴 가루
+깃털 보아
+파일
+소방서
+소방차
+화재 스크린
+깃대
+플루트
+접는 의자
+축구 헬멧
+지게차
+분수
+만년필
+사주식 침대
+화물 자동차
+프렌치 호른
+프라이팬
+모피 코트
+쓰레기 차
+가스 마스크
+가스 펌프
+고블릿
+고 카트
+골프 공
+골프 카트
+곤돌라
+징
+겉옷
+그랜드 피아노
+온실
+그릴
+식료품 점
+기요틴
+머리카락 슬라이드
+헤어 스프레이
+하프 트랙
+망치
+족쇄
+손 송풍기
+휴대용 컴퓨터
+손수건
+하드 디스크
+하모니카
+하프
+수확기
+자귀
+홀스터
+홈 시어터
+벌집
+훅
+농구대
+수평 막대
+목마 카트
+모래 시계
+아이팟
+철
+잭 오 랜턴
+진 피륙
+지프
+저지
+직소 퍼즐
+진리 키샤
+조종간
+키모노
+무릎 패드
+매듭
+실험복
+국자
+갓
+휴대용 퍼스널 컴퓨터
+잔디 깎는 기계
+렌즈 뚜껑
+편지 오프너
+도서관
+구명정
+거룻배
+리무진
+정기선
+립스틱
+로퍼
+외용 물약
+확성기
+루페
+제재소
+자기 나침반
+우편낭
+사서함
+타이츠
+타이츠
+맨홀 덮개
+마라카
+마림바
+마스크
+성냥개비
+메이 폴레
+미로
+계량컵
+구급약 상자
+거석
+마이크로폰
+마이크로파
+군복
+우유 캔
+소형 버스
+미니 스커트
+미니 밴
+미사일
+벙어리 장갑
+믹싱 보울
+이동식 주택
+모델 T
+모뎀
+수도원
+감시 장치
+모터 달린 자전거
+모르타르
+각모
+사원
+모기장
+모터 스쿠터
+산악 자전거
+산 텐트
+쥐
+쥐덫
+움직이는 밴
+포구
+네일
+목걸이
+목걸이
+젖꼭지
+수첩
+오벨리스크
+오보에
+오카리나
+주행 거리계
+오일 필터
+오르간
+오실로스코프
+오버 스커트
+우차
+산소 마스크
+패킷
+외륜
+외륜
+맹꽁이 자물쇠
+화필
+파자마
+궁전
+파이프
+종이 타월
+낙하산
+수평 한 막대
+공원 벤치
+주차료 징수 기
+승용차
+안마당
+공중 전화
+받침대
+필통
+연필 깎기
+향수
+페트리 접시
+복사기
+선택
+피켈 하우스
+울타리
+픽업
+교각
+돼지 저금통
+약병
+베개
+탁구 공
+바람개비
+해적
+피처
+평면
+별자리 투영기
+비닐 봉투
+판 랙
+쟁기
+플런저
+폴라로이드 카메라
+기둥
+경찰 반
+판초
+당구대
+사이다병
+냄비
+포터의 바퀴
+파워 드릴
+기도 깔개
+인쇄기
+감옥
+발사체
+영사기
+퍽
+샌드백
+지갑
+깃
+이불
+경주자
+라켓
+라디에이터
+라디오
+전파 망원경
+비 배럴
+레저 용 차량
+릴
+리플렉스 카메라
+냉장고
+리모콘
+레스토랑
+리볼버
+소총
+흔들 의자
+로티 세리
+고무 지우개
+럭비 공
+규칙
+운동화
+안전한
+안전핀
+소금 통
+샌들
+사롱
+색소폰
+집
+규모
+학교 버스
+큰 포장 마차
+점수 판
+화면
+나사
+드라이버
+안전 벨트
+재봉틀
+방패
+신발 가게
+미닫이
+쇼핑 바구니
+쇼핑 카트
+삽
+샤워 캡
+샤워 커튼
+스키
+스키 마스크
+침낭
+계산자
+미닫이 문
+슬롯
+스노클
+설상차
+제설기
+비누 디스펜서
+축구 공
+양말
+태양 접시
+솜브레로
+수프 그릇
+스페이스 바
+공간 히터
+우주 왕복선
+주걱
+쾌속정
+거미줄
+축
+스포츠카
+스포트라이트
+단계
+증기 기관차
+강철 아치교
+강철 드럼
+청진기
+스톨
+돌담
+스톱워치
+난로
+거르는 사람
+시가 전차
+들것
+스튜디오 소파
+해골
+잠수함
+소송
+해시계
+선글래스
+색안경
+자외선 차단제
+현수교
+자루 걸레
+스웨트 셔츠
+수영 트렁크
+그네
+스위치
+주사기
+테이블 램프
+탱크
+테이프 플레이어
+주전자
+테디
+텔레비전
+테니스 공
+풀 지풍
+극장 커튼
+골무
+탈곡기
+왕좌
+기와 지붕
+빵 굽는 사람
+담배 가게
+변기
+토치
+토템 폴
+견인차
+장난감 가게
+트랙터
+트레일러 트럭
+쟁반
+트렌치 코트
+삼륜차
+삼자경
+삼각대
+승리 아치
+무궤도 전차
+트롬본
+통
+개찰구
+타자기 키보드
+우산
+외발 자전거 타다
+똑바로
+진공
+병 장식
+둥근 천장
+벨벳
+자판기
+의복
+육교
+바이올린
+배구
+와플 철
+벽 시계
+지갑
+옷장
+군용기
+세면기
+세탁기
+물 병
+물병
+급수탑
+위스키 주전자
+휘파람
+가발
+윈도우 화면
+창문 그늘
+윈저 넥타이
+와인 병
+비행
+냄비
+나무 숟가락
+양모
+웜 울타리
+난파선
+욜형 돛단배
+유르트
+웹 사이트
+만화책
+십자말 풀이
+도로 표지판
+신호등
+책 자켓
+메뉴
+플레이트
+아보카도
+콩소메
+뜨거운 냄비
+하찮은 것
+아이스크림
+얼음 롤리
+프렌치 로프
+베이글
+프레첼
+치즈 버거
+핫도그
+으깬 감자
+양배추
+브로콜리
+콜리 플라워
+서양 호박
+스파게티 스쿼시
+도토리 스쿼시
+버터넛 스쿼시
+오이
+아티초크
+피망
+카르둔
+버섯
+그래니스미스 애플
+딸기
+주황색
+레몬
+무화과
+파인애플
+바나나
+잭프루트
+커스터드 애플
+석류
+건초
+까르보나라
+초콜릿 소스
+반죽
+미트 로프
+피자
+파이
+부리또
+적포도주
+에스프레소
+컵
+에그노그 술
+높은 산
+거품
+낭떠러지
+산호초
+간헐천
+호숫가
+곶
+사주
+해변
+골짜기
+화산
+볼 선수
+신랑
+스쿠버 다이버
+유채씨
+데이지 꽃
+노랑개불알꽃
+옥수수
+도토리
+들장미 열매
+칠엽수 나무
+싸리버섯
+주름버섯
+자이로미트라 버섯
+대곰보버섯
+목도시흙밤버섯
+잎새버섯
+볼레트 버섯
+귀
+화장지
