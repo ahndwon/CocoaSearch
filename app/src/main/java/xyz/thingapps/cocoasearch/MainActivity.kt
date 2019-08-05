@@ -33,20 +33,32 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun setFilterBarVisibility(visibility: Int) {
+        filterBarContainer.visibility = visibility
+    }
+
+    private fun setActionBarHomeUp(enabled: Boolean) {
+        supportActionBar?.setDisplayHomeAsUpEnabled(enabled)
+    }
+
+    private fun setActionBarTitle(title: String) {
+        supportActionBar?.title = title
+    }
+
     override fun onAttachFragment(fragment: Fragment) {
         when (fragment) {
             is ImageDetailFragment -> {
                 fragment.listener = object : FragmentLifeListener {
                     override fun onBirth() {
-                        filterBarContainer.visibility = View.GONE
-                        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                        supportActionBar?.title = getString(R.string.see_detail)
+                        setFilterBarVisibility(View.GONE)
+                        setActionBarHomeUp(true)
+                        setActionBarTitle(getString(R.string.see_detail))
                     }
 
                     override fun onDeath() {
-                        filterBarContainer.visibility = View.VISIBLE
-                        supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                        supportActionBar?.title = getString(R.string.developer_name)
+                        setFilterBarVisibility(View.VISIBLE)
+                        setActionBarHomeUp(false)
+                        setActionBarTitle(getString(R.string.developer_name))
                     }
 
                 }
@@ -55,13 +67,13 @@ class MainActivity : AppCompatActivity() {
             is WebViewFragment -> {
                 fragment.listener = object : FragmentLifeListener {
                     override fun onBirth() {
-                        filterBarContainer.visibility = View.GONE
-                        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                        supportActionBar?.title = getString(R.string.website)
+                        setFilterBarVisibility(View.GONE)
+                        setActionBarHomeUp(true)
+                        setActionBarTitle(getString(R.string.website))
                     }
 
                     override fun onDeath() {
-                        supportActionBar?.title = getString(R.string.see_detail)
+                        setActionBarTitle(getString(R.string.see_detail))
                     }
                 }
             }
@@ -69,13 +81,13 @@ class MainActivity : AppCompatActivity() {
             is HashTagFragment -> {
                 fragment.listener = object : HashTagFragment.TitleFragmentLifeListener {
                     override fun onBirth(title: String) {
-                        filterBarContainer.visibility = View.GONE
-                        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                        supportActionBar?.title = getString(R.string.format_hash_tag, title)
+                        setFilterBarVisibility(View.GONE)
+                        setActionBarHomeUp(true)
+                        setActionBarTitle(getString(R.string.format_hash_tag, title))
                     }
 
                     override fun onDeath() {
-                        supportActionBar?.title = getString(R.string.see_detail)
+                        setActionBarTitle(getString(R.string.see_detail))
                     }
                 }
             }
