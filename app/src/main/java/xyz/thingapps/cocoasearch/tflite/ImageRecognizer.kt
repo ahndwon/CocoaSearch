@@ -5,10 +5,11 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Matrix
+import android.graphics.drawable.Drawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.request.target.SimpleTarget
-import io.reactivex.Observable
+import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import java.io.IOException
 
@@ -46,11 +47,11 @@ class ImageRecognizer(context: Context) {
 
     }
 
-    fun getRecognitions(url: String): Observable<List<Classifier.Recognition>> {
-        return Observable.create { emitter ->
+    fun getRecognitions(url: String): Single<List<Classifier.Recognition>> {
+        return Single.create { emitter ->
             getBitmap(url)
                     .subscribeOn(Schedulers.io())
-                    .subscribe {
+                    .subscribe({
                         glideRequest.asBitmap()
                                 .format(DecodeFormat.PREFER_ARGB_8888)
                                 .load(url)
@@ -60,11 +61,17 @@ class ImageRecognizer(context: Context) {
                                             transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
                                     ) {
                                         val results = recognizeImage(resource)
-                                        emitter.onNext(results)
-                                        emitter.onComplete()
+                                        emitter.onSuccess(results)
+                                    }
+
+                                    override fun onLoadFailed(errorDrawable: Drawable?) {
+                                        emitter.onError(Throwable("image recognition failed"))
+                                        super.onLoadFailed(errorDrawable)
                                     }
                                 })
-                    }
+                    }, { e ->
+                        e.printStackTrace()
+                    })
         }
     }
 
@@ -89,8 +96,8 @@ class ImageRecognizer(context: Context) {
         return processImage(resource, pixels)
     }
 
-    private fun getBitmap(url: String): Observable<Bitmap> {
-        return Observable.create { emitter ->
+    private fun getBitmap(url: String): Single<Bitmap> {
+        return Single.create { emitter ->
             glideRequest.asBitmap()
                     .format(DecodeFormat.PREFER_ARGB_8888)
                     .load(url)
@@ -99,8 +106,12 @@ class ImageRecognizer(context: Context) {
                                 resource: Bitmap,
                                 transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
                         ) {
-                            emitter.onNext(resource)
-                            emitter.onComplete()
+                            emitter.onSuccess(resource)
+                        }
+
+                        override fun onLoadFailed(errorDrawable: Drawable?) {
+                            emitter.onError(Throwable("getBitmap load failed"))
+                            super.onLoadFailed(errorDrawable)
                         }
                     })
 
@@ -118,5 +129,3 @@ class ImageRecognizer(context: Context) {
         }
     }
 }
-
-
