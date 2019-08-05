@@ -19,14 +19,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin"
+            style="@style/AppTheme.Body1"
+            app:layout_constraintTop_toBottomOf="@id/detailImageView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
             android:id="@+id/recommendationTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:text="추천 검색어"
+            android:text="@string/search_recommendations"
             android:textStyle="bold"
             style="@style/AppTheme.Headline"
-            app:layout_constraintTop_toBottomOf="@id/detailImageView"
+            app:layout_constraintTop_toBottomOf="@id/dateTextView"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.flexbox.FlexboxLayout
@@ -38,6 +47,41 @@
             app:alignItems="stretch"
             app:alignContent="stretch"
             app:layout_constraintTop_toBottomOf="@id/recommendationTitle" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/double_margin"
+            app:layout_constraintTop_toBottomOf="@id/tagLayout">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/shareButton"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginBottom="@dimen/double_margin"
+                android:layout_marginStart="@dimen/double_margin"
+                android:layout_marginEnd="@dimen/basic_margin"
+                android:background="@drawable/btn_border"
+                android:text="@string/share"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/visitButton"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/double_margin"
+                android:layout_marginBottom="@dimen/double_margin"
+                android:layout_marginStart="@dimen/basic_margin"
+                android:layout_marginEnd="@dimen/double_margin"
+                android:background="@drawable/btn_border"
+                android:text="@string/website"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

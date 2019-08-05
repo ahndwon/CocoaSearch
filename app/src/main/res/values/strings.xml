@@ -13,5 +13,8 @@
     <string name="title_search_option">search option</string>
     <string name="description_detail_image">detail image</string>
     <string name="format_hash_tag">#%s</string>
+    <string name="share">공유하기</string>
+    <string name="website">웹사이트</string>
+    <string name="search_recommendations">추천 검색어</string>
 
 </resources>
