@@ -1,10 +1,10 @@
 package xyz.thingapps.cocoasearch.ui
 
 import android.util.Log
+import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import android.view.ViewGroup
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.repository.NetworkState
@@ -16,6 +16,7 @@ class SearchResultAdapter(
         private val retryCallback: () -> Unit)
     : PagedListAdapter<Document, RecyclerView.ViewHolder>(POST_COMPARATOR) {
     private var networkState: NetworkState? = null
+    var onClick: ((Document) -> Unit)? = null
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         Log.d(SearchResultAdapter::class.java.name, "onBind ${getItemViewType(position)}")
@@ -31,12 +32,11 @@ class SearchResultAdapter(
             position: Int,
             payloads: MutableList<Any>) {
         onBindViewHolder(holder, position)
-        onBindViewHolder(holder, position)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-            R.layout.item_search_result -> ImageSearchViewHolder.create(parent, glide)
+            R.layout.item_search_result -> ImageSearchViewHolder.create(parent, glide, onClick)
             R.layout.item_network_state -> NetworkStateItemViewHolder.create(parent, retryCallback)
             else -> throw IllegalArgumentException("unknown view type $viewType")
         }

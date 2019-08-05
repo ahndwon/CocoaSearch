@@ -12,7 +12,7 @@ import xyz.thingapps.cocoasearch.repository.NetworkState
 class SearchViewModel(private val repository: KakaoImageRepository) : ViewModel() {
     private val searchWord = MutableLiveData<String>()
     private val searchResult = Transformations.map(searchWord) {
-        repository.imageSearchResult(it, 80)
+        repository.imageSearchResult(it, 40)
     }
 
     val posts : LiveData<PagedList<Document>> = Transformations.switchMap(searchResult) { it.pagedList }
