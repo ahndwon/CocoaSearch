@@ -14,6 +14,7 @@ import java.util.concurrent.Executor
 class KakaoImageDataSource(
         private val imageSearchApi: ImageSearchApi,
         private val searchWord: String,
+        private val sortType: String,
         private val retryExecutor: Executor)
     : ItemKeyedDataSource<Int, Document>() {
 
@@ -46,7 +47,8 @@ class KakaoImageDataSource(
         imageSearchApi.getImage(
                 query = searchWord,
                 page = pageNum,
-                size = params.requestedLoadSize
+                size = params.requestedLoadSize,
+                sort = sortType
         ).enqueue(
                 object : retrofit2.Callback<SearchResponse> {
                     override fun onFailure(call: Call<SearchResponse>, t: Throwable) {

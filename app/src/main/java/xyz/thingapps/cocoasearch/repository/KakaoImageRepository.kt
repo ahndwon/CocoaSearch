@@ -12,9 +12,13 @@ import java.util.concurrent.Executor
 class KakaoImageRepository(
         private val imageSearch: ImageSearchApi,
         private val networkExecutor: Executor) : ImageRepository {
+
     @MainThread
-    override fun imageSearchResult(searchWord: String, pageSize: Int): Listing<Document> {
-        val sourceFactory = KakaoImageDataSourceFactory(imageSearch, searchWord, networkExecutor)
+    override fun imageSearchResult(
+            searchWord: String,
+            sortType: String,
+            pageSize: Int): Listing<Document> {
+        val sourceFactory = KakaoImageDataSourceFactory(imageSearch, searchWord, sortType, networkExecutor)
 
         val livePagedList = sourceFactory.toLiveData(
                 config = Config(
@@ -30,7 +34,7 @@ class KakaoImageRepository(
         return Listing(
                 pagedList = livePagedList,
                 networkState = Transformations.switchMap(sourceFactory.sourceLiveData) {
-                  it.networkState
+                    it.networkState
                 },
                 retry = {
                     sourceFactory.sourceLiveData.value?.retryAllFailed()
