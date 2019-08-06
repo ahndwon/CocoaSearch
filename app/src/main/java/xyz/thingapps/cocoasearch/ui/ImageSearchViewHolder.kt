@@ -15,10 +15,12 @@ import xyz.thingapps.cocoasearch.utils.GlideRequests
 class ImageSearchViewHolder(view: View, private val glide: GlideRequests)
     : RecyclerView.ViewHolder(view) {
 
+    var item: Document? = null
     private val displayMetrics = view.context.resources.displayMetrics
     var onClick: ((Document) -> Unit)? = null
 
     fun bind(itemView: View, item: Document?) {
+        this.item = item
         with(itemView) {
             item?.let { item ->
                 scaleHeight(searchImageView, item.height, item.width)
@@ -47,6 +49,11 @@ class ImageSearchViewHolder(view: View, private val glide: GlideRequests)
                     .into(imageView)
         }
     }
+
+//    fun updateImage(itemView: View, item: Document?) {
+//        this.item = item
+//        item?.let { showImage(itemView.searchImageView, item.imageUrl) }
+//    }
 
     companion object {
         fun create(

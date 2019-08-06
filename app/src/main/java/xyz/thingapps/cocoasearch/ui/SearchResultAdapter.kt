@@ -25,6 +25,15 @@ class SearchResultAdapter(
         }
     }
 
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int, payloads: MutableList<Any>) {
+//        if (payloads.isNotEmpty()) {
+//            val item = getItem(position)
+//            (holder as ImageSearchViewHolder).updateImage(holder.itemView, item)
+//        } else {
+        onBindViewHolder(holder, position)
+//        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             R.layout.item_search_result -> ImageSearchViewHolder.create(parent, glide, onClick)

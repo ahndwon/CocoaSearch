@@ -1,13 +1,12 @@
 package xyz.thingapps.cocoasearch.ui
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_network_state.view.*
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.repository.NetworkState
-import xyz.thingapps.cocoasearch.repository.Status
 
 
 class NetworkStateItemViewHolder(view: View,
@@ -16,8 +15,8 @@ class NetworkStateItemViewHolder(view: View,
 
     fun bind(itemView: View, networkState: NetworkState?) {
         with(itemView) {
-            loadingProgressBar.visibility = toVisibility(networkState?.status == Status.RUNNING)
-            retryLoadingButton.visibility = toVisibility(networkState?.status == Status.FAILED)
+            loadingProgressBar.visibility = toVisibility(networkState?.status == NetworkState.Status.RUNNING)
+            retryLoadingButton.visibility = toVisibility(networkState?.status == NetworkState.Status.FAILED)
             errorMessageTextView.visibility = toVisibility(networkState?.msg != null)
             errorMessageTextView.text = networkState?.msg
 
