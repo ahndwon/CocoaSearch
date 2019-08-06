@@ -3,31 +3,26 @@ package xyz.thingapps.cocoasearch.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
 import kotlinx.android.synthetic.main.item_search_result.view.*
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.utils.GlideRequests
-import java.util.*
 
 
 class ImageSearchViewHolder(view: View, private val glide: GlideRequests)
     : RecyclerView.ViewHolder(view) {
 
-    private val random = Random()
+    private val displayMetrics = view.context.resources.displayMetrics
     var onClick: ((Document) -> Unit)? = null
 
     fun bind(itemView: View, item: Document?) {
         with(itemView) {
-            searchImageView.layoutParams.height = getRandomIntInRange(400, 300)
-
             item?.let { item ->
-                if (item.imageUrl.startsWith("http")) {
-                    glide.load(item.imageUrl)
-                            .centerCrop()
-                            .placeholder(R.drawable.ic_insert_photo_black_48dp)
-                            .into(searchImageView)
-                }
+                scaleHeight(searchImageView, item.height, item.width)
+                showImage(searchImageView, item.imageUrl)
 
                 setOnClickListener {
                     onClick?.invoke(item)
@@ -36,8 +31,21 @@ class ImageSearchViewHolder(view: View, private val glide: GlideRequests)
         }
     }
 
-    private fun getRandomIntInRange(max: Int, min: Int): Int {
-        return random.nextInt(max - min + min) + min
+    private fun scaleHeight(imageView: ImageView, itemHeight: Int, itemWidth: Int) {
+        val scale = itemHeight.toFloat() / itemWidth.toFloat()
+        val holderWidth = (displayMetrics.widthPixels - 20) / 2
+        val viewHeight = holderWidth * scale
+        imageView.layoutParams.height = viewHeight.toInt()
+    }
+
+    private fun showImage(imageView: ImageView, url: String) {
+        if (url.startsWith("http")) {
+            glide.asBitmap()
+                    .load(url)
+                    .centerCrop()
+                    .transition(BitmapTransitionOptions.withCrossFade())
+                    .into(imageView)
+        }
     }
 
     companion object {

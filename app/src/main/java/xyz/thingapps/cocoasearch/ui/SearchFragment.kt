@@ -31,13 +31,18 @@ class SearchFragment : Fragment() {
     companion object {
         const val KEY_SEARCH_WORD = "search_word"
         const val DEFAULT_SEARCH_WORD = "kakao"
+        const val GRID_SPACING_PX = 10
+        const val GRID_SIZE = 2
         const val QUERY_TIMEOUT = 500L
     }
 
     private val disposeBag = CompositeDisposable()
     private lateinit var model: SearchViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         setHasOptionsMenu(true)
 
@@ -64,6 +69,7 @@ class SearchFragment : Fragment() {
 
     private fun initAdapter(view: View) {
         val glide = GlideApp.with(this)
+
         val adapter = SearchResultAdapter(glide) {
             model.retry()
         }
@@ -77,12 +83,10 @@ class SearchFragment : Fragment() {
 
         view.searchRecyclerView.adapter = adapter
         view.searchRecyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-        view.searchRecyclerView.addItemDecoration(GridItemDecoration(10, 2))
+        view.searchRecyclerView.addItemDecoration(GridItemDecoration(GRID_SPACING_PX, GRID_SIZE))
 
         model.posts.observe(this, Observer<PagedList<Document>> {
-            Log.d(SearchViewModel::class.java.name, "data ${it}")
             adapter.submitList(it)
-            adapter.notifyDataSetChanged()
         })
         model.networkState.observe(this, Observer {
             adapter.setNetworkState(it)
