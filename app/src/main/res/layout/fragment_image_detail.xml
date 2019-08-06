@@ -2,7 +2,8 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/root"
@@ -19,33 +20,120 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/dateTextView"
+            android:id="@+id/imageInfoTitle"
+            style="@style/AppTheme.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/basic_margin"
+            android:text="@string/title_image_info"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailImageView" />
+
+        <TextView
+            android:id="@+id/imageDateTitle"
             style="@style/AppTheme.Body1"
-            app:layout_constraintTop_toBottomOf="@id/detailImageView"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin"
+            android:text="@string/title_image_date"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageInfoTitle" />
+
+        <TextView
+            android:id="@+id/imageDateTextView"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/imageDateTitle"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="@id/imageDateTitle"
+            tools:text="@string/dummy_image_date" />
+
+        <TextView
+            android:id="@+id/siteInfoTitle"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin"
+            android:text="@string/title_site_info"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageDateTitle" />
+
+        <TextView
+            android:id="@+id/siteInfoTextView"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/siteInfoTitle"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="@id/siteInfoTitle"
+            tools:text="@string/dummy_site_info" />
+
+        <TextView
+            android:id="@+id/imageHeightTitle"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin"
+            android:text="@string/title_image_height"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/siteInfoTitle" />
+
+        <TextView
+            android:id="@+id/imageHeightTextView"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/imageHeightTitle"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="@id/imageHeightTitle"
+            tools:text="@string/dummy_image_height" />
+
+        <TextView
+            android:id="@+id/imageWidthTitle"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/basic_margin"
+            android:text="@string/title_image_width"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageHeightTitle" />
+
+        <TextView
+            android:id="@+id/imageWidthTextView"
+            style="@style/AppTheme.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/imageWidthTitle"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="@id/imageWidthTitle"
+            tools:text="@string/dummy_image_width" />
 
         <TextView
             android:id="@+id/recommendationTitle"
+            style="@style/AppTheme.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/basic_margin"
+            android:layout_marginTop="@dimen/space_margin"
+            android:layout_marginStart="@dimen/basic_margin"
             android:text="@string/search_recommendations"
             android:textStyle="bold"
-            style="@style/AppTheme.Headline"
-            app:layout_constraintTop_toBottomOf="@id/dateTextView"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageWidthTitle" />
 
         <com.google.android.flexbox.FlexboxLayout
             android:id="@+id/tagLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:flexWrap="wrap"
-            app:alignItems="stretch"
             app:alignContent="stretch"
+            app:alignItems="stretch"
+            app:flexWrap="wrap"
             app:layout_constraintTop_toBottomOf="@id/recommendationTitle" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -57,31 +145,38 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/shareButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_weight="1"
-                android:layout_marginTop="@dimen/double_margin"
-                android:layout_marginBottom="@dimen/double_margin"
                 android:layout_marginStart="@dimen/double_margin"
+                android:layout_marginTop="@dimen/double_margin"
                 android:layout_marginEnd="@dimen/basic_margin"
+                android:layout_marginBottom="@dimen/double_margin"
+                android:layout_weight="1"
                 android:background="@drawable/btn_border"
-                android:text="@string/share"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                android:text="@string/share" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/websiteButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_weight="1"
-                android:layout_marginTop="@dimen/double_margin"
-                android:layout_marginBottom="@dimen/double_margin"
                 android:layout_marginStart="@dimen/basic_margin"
+                android:layout_marginTop="@dimen/double_margin"
                 android:layout_marginEnd="@dimen/double_margin"
+                android:layout_marginBottom="@dimen/double_margin"
+                android:layout_weight="1"
                 android:background="@drawable/btn_border"
-                android:text="@string/website"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                android:text="@string/website" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:id="@+id/guideline"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/double_margin"
+            app:layout_constraintStart_toEndOf="@id/siteInfoTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

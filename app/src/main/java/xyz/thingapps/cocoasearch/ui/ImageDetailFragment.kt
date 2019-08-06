@@ -62,7 +62,10 @@ class ImageDetailFragment : Fragment() {
                     .into(view.detailImageView)
         }
 
-        view.dateTextView.text = viewModel.getDocumentDate()
+        view.imageDateTextView.text = viewModel.getDocumentDate()
+        view.siteInfoTextView.text = viewModel.document?.displaySiteName
+        view.imageHeightTextView.text = viewModel.document?.height?.toString()
+        view.imageWidthTextView.text = viewModel.document?.width?.toString()
 
         setupButtons(view)
 
