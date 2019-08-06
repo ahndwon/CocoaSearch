@@ -8,12 +8,11 @@ import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
-import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.target.CustomTarget
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 import java.io.IOException
 
-@Suppress("DEPRECATION")
 class ImageRecognizer(context: Context) {
     private var classifier: Classifier? = null
     private var rgbFrameBitmap: Bitmap? = null
@@ -55,7 +54,11 @@ class ImageRecognizer(context: Context) {
                         glideRequest.asBitmap()
                                 .format(DecodeFormat.PREFER_ARGB_8888)
                                 .load(url)
-                                .into(object : SimpleTarget<Bitmap>() {
+                                .into(object : CustomTarget<Bitmap>() {
+                                    override fun onLoadCleared(placeholder: Drawable?) {
+
+                                    }
+
                                     override fun onResourceReady(
                                             resource: Bitmap,
                                             transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
@@ -101,7 +104,11 @@ class ImageRecognizer(context: Context) {
             glideRequest.asBitmap()
                     .format(DecodeFormat.PREFER_ARGB_8888)
                     .load(url)
-                    .into(object : SimpleTarget<Bitmap>() {
+                    .into(object : CustomTarget<Bitmap>() {
+                        override fun onLoadCleared(placeholder: Drawable?) {
+
+                        }
+
                         override fun onResourceReady(
                                 resource: Bitmap,
                                 transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
