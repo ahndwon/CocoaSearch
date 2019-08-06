@@ -14,12 +14,10 @@ import java.util.*
 class ImageSearchViewHolder(view: View, private val glide: GlideRequests)
     : RecyclerView.ViewHolder(view) {
 
-    private var item: Document? = null
     private val random = Random()
     var onClick: ((Document) -> Unit)? = null
 
     fun bind(itemView: View, item: Document?) {
-        this.item = item
         with(itemView) {
             searchImageView.layoutParams.height = getRandomIntInRange(400, 300)
 

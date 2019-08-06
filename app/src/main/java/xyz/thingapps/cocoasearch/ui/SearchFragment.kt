@@ -80,7 +80,9 @@ class SearchFragment : Fragment() {
         view.searchRecyclerView.addItemDecoration(GridItemDecoration(10, 2))
 
         model.posts.observe(this, Observer<PagedList<Document>> {
+            Log.d(SearchViewModel::class.java.name, "data ${it}")
             adapter.submitList(it)
+            adapter.notifyDataSetChanged()
         })
         model.networkState.observe(this, Observer {
             adapter.setNetworkState(it)
@@ -124,7 +126,8 @@ class SearchFragment : Fragment() {
                         if (it.isNotEmpty()) {
                             if (model.showSearchResult(it)) {
                                 view?.searchRecyclerView?.scrollToPosition(0)
-                                (view?.searchRecyclerView?.adapter as? SearchResultAdapter)?.submitList(null)
+//                                (view?.searchRecyclerView?.adapter as? SearchResultAdapter)
+//                                        ?.submitList(null)
                             }
                         }
                     }

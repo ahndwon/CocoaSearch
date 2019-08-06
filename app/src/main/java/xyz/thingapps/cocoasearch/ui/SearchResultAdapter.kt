@@ -1,6 +1,5 @@
 package xyz.thingapps.cocoasearch.ui
 
-import android.util.Log
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -19,19 +18,11 @@ class SearchResultAdapter(
     var onClick: ((Document) -> Unit)? = null
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        Log.d(SearchResultAdapter::class.java.name, "onBind ${getItemViewType(position)}")
         when (getItemViewType(position)) {
             R.layout.item_search_result -> (holder as ImageSearchViewHolder).bind(holder.itemView, getItem(position))
             R.layout.item_network_state -> (holder as NetworkStateItemViewHolder).bind(holder.itemView,
                     networkState)
         }
-    }
-
-    override fun onBindViewHolder(
-            holder: RecyclerView.ViewHolder,
-            position: Int,
-            payloads: MutableList<Any>) {
-        onBindViewHolder(holder, position)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -79,10 +70,6 @@ class SearchResultAdapter(
 
             override fun areItemsTheSame(oldItem: Document, newItem: Document): Boolean =
                     oldItem.imageUrl == newItem.imageUrl
-
-            override fun getChangePayload(oldItem: Document, newItem: Document): Any? {
-                return null
-            }
         }
     }
 }

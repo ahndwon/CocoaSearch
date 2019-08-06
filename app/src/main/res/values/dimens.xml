@@ -3,4 +3,5 @@
     <dimen name="card_view_margin">4dp</dimen>
     <dimen name="basic_margin">8dp</dimen>
     <dimen name="double_margin">16dp</dimen>
+    <dimen name="space_margin">32dp</dimen>
 </resources>

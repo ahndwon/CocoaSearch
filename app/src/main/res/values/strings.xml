@@ -16,7 +16,16 @@
     <string name="share_message">클릭하여 확인해보세요! - %s</string>
     <string name="share">공유하기</string>
     <string name="website">웹사이트</string>
-    <string name="search_recommendations">추천 검색어</string>
+    <string name="search_recommendations">이미지 연관 검색어</string>
     <string name="see_detail">상세보기</string>
+    <string name="title_image_info">이미지 정보</string>
+    <string name="title_image_date">등록시간 :</string>
+    <string name="title_site_info">사이트 종류 :</string>
+    <string name="title_image_height">이미지 높이 :</string>
+    <string name="title_image_width">이미지 폭 :</string>
+    <string name="dummy_image_date">월, 12월 2015년 19시 12분 54초</string>
+    <string name="dummy_site_info">Daum블로그</string>
+    <string name="dummy_image_height">640</string>
+    <string name="dummy_image_width">600</string>
 
 </resources>
