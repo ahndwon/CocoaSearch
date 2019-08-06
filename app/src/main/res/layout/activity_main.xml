@@ -37,7 +37,7 @@
             android:paddingBottom="8dp">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/filterBar"
+                android:id="@+id/sortBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
@@ -54,7 +54,7 @@
                     android:gravity="center_vertical">
 
                     <ImageView
-                        android:id="@+id/buttonFilter"
+                        android:id="@+id/sortButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -67,54 +67,40 @@
                         app:srcCompat="@drawable/ic_filter_list_white_24px" />
 
                     <LinearLayout
-                        android:id="@+id/textCurrentSearchContainer"
+                        android:id="@+id/currentSortContainer"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="8dp"
-                        android:layout_toEndOf="@+id/buttonFilter"
                         android:orientation="vertical"
                         android:paddingTop="8dp"
                         android:paddingBottom="8dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/buttonClearFilter"
-                        app:layout_constraintStart_toEndOf="@id/buttonFilter"
+                        app:layout_constraintStart_toEndOf="@id/sortButton"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/textCurrentSearch"
+                            android:id="@+id/currentSortTextView"
                             style="@style/AppTheme.Body1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="@string/title_filter"
+                            android:text="@string/title_sort"
                             android:textColor="@color/lightBlack"
                             tools:text="Filter" />
 
                         <TextView
-                            android:id="@+id/textCurrentSortBy"
+                            android:id="@+id/sortTypeSpinner"
                             style="@style/AppTheme.Caption"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/filter_accuracy"
+                            android:text="@string/sort_accuracy"
                             android:textColor="@color/greyDisabled" />
 
                     </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/buttonClearFilter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:contentDescription="@string/description_clear_filter"
-                        android:padding="8dp"
-                        android:tint="@color/lightBlack"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/ic_close_white_24px" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

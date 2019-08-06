@@ -1,5 +1,6 @@
 package xyz.thingapps.cocoasearch
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -14,6 +15,7 @@ class SearchViewModel(private val repository: KakaoImageRepository) : ViewModel(
     private val searchWord = MutableLiveData<String>()
     private val searchResult =
             Transformations.map(searchWord) {
+                Log.d(SearchViewModel::class.java.name, "searchSort : $searchSort")
                 repository.imageSearchResult(it, searchSort, PAGE_SIZE)
             }
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import xyz.thingapps.cocoasearch.net.Document
+import xyz.thingapps.cocoasearch.net.ImageSearchApi
 import xyz.thingapps.cocoasearch.repository.KakaoImageRepository
 import xyz.thingapps.cocoasearch.repository.Listing
 import xyz.thingapps.cocoasearch.repository.NetworkState
@@ -14,12 +15,16 @@ class HashTagViewModel(searchWord: String, repository: KakaoImageRepository) : V
     private val searchResult: MutableLiveData<Listing<Document>> = MutableLiveData()
 
     init {
-        searchResult.value = repository.imageSearchResult(searchWord, 40)
+        searchResult.value =
+                repository.imageSearchResult(searchWord, ImageSearchApi.SORT_ACCURACY, PAGE_SIZE)
     }
 
-    val posts: LiveData<PagedList<Document>> = Transformations.switchMap(searchResult) { it.pagedList }
-    val networkState: LiveData<NetworkState> = Transformations.switchMap(searchResult) { it.networkState }
-    val refreshState: LiveData<NetworkState> = Transformations.switchMap(searchResult) { it.refreshState }
+    val posts: LiveData<PagedList<Document>> =
+            Transformations.switchMap(searchResult) { it.pagedList }
+    val networkState: LiveData<NetworkState> =
+            Transformations.switchMap(searchResult) { it.networkState }
+    val refreshState: LiveData<NetworkState> =
+            Transformations.switchMap(searchResult) { it.refreshState }
 
     fun refresh() {
         searchResult.value?.refresh?.invoke()
@@ -28,5 +33,9 @@ class HashTagViewModel(searchWord: String, repository: KakaoImageRepository) : V
     fun retry() {
         val listing = searchResult.value
         listing?.retry?.invoke()
+    }
+
+    companion object {
+        const val PAGE_SIZE = 40
     }
 }

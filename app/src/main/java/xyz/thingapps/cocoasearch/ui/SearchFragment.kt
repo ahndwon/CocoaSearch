@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.SearchView
+import androidx.appcompat.app.AlertDialog
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
@@ -12,14 +14,18 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.jakewharton.rxbinding3.view.clicks
 import com.jakewharton.rxbinding3.widget.queryTextChanges
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_search.view.*
+import xyz.thingapps.cocoasearch.MainActivity
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.SearchViewModel
 import xyz.thingapps.cocoasearch.net.Document
+import xyz.thingapps.cocoasearch.net.ImageSearchApi
 import xyz.thingapps.cocoasearch.repository.NetworkState
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.utils.GridItemDecoration
@@ -37,7 +43,7 @@ class SearchFragment : Fragment() {
     }
 
     private val disposeBag = CompositeDisposable()
-    private lateinit var model: SearchViewModel
+    lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -46,12 +52,54 @@ class SearchFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         setHasOptionsMenu(true)
 
-        model = getViewModel()
+        searchViewModel = getViewModel()
         initAdapter(view)
         initSwipeToRefresh(view)
+
         val searchWord = savedInstanceState?.getString(KEY_SEARCH_WORD) ?: DEFAULT_SEARCH_WORD
-        model.showSearchResult(searchWord)
+        searchViewModel.showSearchResult(searchWord)
         return view
+    }
+
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        val sortBar = (activity as MainActivity).findViewById<CardView>(R.id.sortBar)
+        setupSortDialog(sortBar)
+        super.onActivityCreated(savedInstanceState)
+    }
+
+    private fun setupSortDialog(view: View?) {
+        view?.clicks()?.throttleFirst(600L, TimeUnit.MILLISECONDS)
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe {
+                    val array = resources.getStringArray(R.array.sort_list)
+
+                    val builder = AlertDialog.Builder(view.context)
+                    builder.setItems(array) { dialog, which ->
+                        dialog.dismiss()
+                        val mainActivity = (activity as MainActivity)
+                        when (which) {
+                            0 -> {
+                                mainActivity.sortTypeSpinner.text = getString(R.string.sort_accuracy)
+                                searchViewModel.searchSort = ImageSearchApi.SORT_ACCURACY
+                            }
+                            1 -> {
+                                mainActivity.sortTypeSpinner.text = getString(R.string.sort_recency)
+                                searchViewModel.searchSort = ImageSearchApi.SORT_RECENCY
+                            }
+                        }
+                    }
+                    val dialog = builder.create()
+                    dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                    dialog.window?.setGravity(Gravity.TOP)
+                    val layoutParams = dialog.window?.attributes
+                    layoutParams?.let {
+                        it.x = -view.left
+                        it.y = view.bottom
+                        dialog.window?.attributes = it
+                    }
+                    dialog.show()
+                }?.addTo(disposeBag)
     }
 
     private fun getViewModel(): SearchViewModel {
@@ -71,7 +119,7 @@ class SearchFragment : Fragment() {
         val glide = GlideApp.with(this)
 
         val adapter = SearchResultAdapter(glide) {
-            model.retry()
+            searchViewModel.retry()
         }
 
         adapter.onClick = { document ->
@@ -85,26 +133,26 @@ class SearchFragment : Fragment() {
         view.searchRecyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         view.searchRecyclerView.addItemDecoration(GridItemDecoration(GRID_SPACING_PX, GRID_SIZE))
 
-        model.posts.observe(this, Observer<PagedList<Document>> {
+        searchViewModel.posts.observe(this, Observer<PagedList<Document>> {
             adapter.submitList(it)
         })
-        model.networkState.observe(this, Observer {
+        searchViewModel.networkState.observe(this, Observer {
             adapter.setNetworkState(it)
         })
     }
 
     private fun initSwipeToRefresh(view: View) {
-        model.refreshState.observe(this, Observer {
+        searchViewModel.refreshState.observe(this, Observer {
             view.swipeRefreshLayout.isRefreshing = it == NetworkState.LOADING
         })
         view.swipeRefreshLayout.setOnRefreshListener {
-            model.refresh()
+            searchViewModel.refresh()
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(KEY_SEARCH_WORD, model.currentSearchWord())
+        outState.putString(KEY_SEARCH_WORD, searchViewModel.currentSearchWord())
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -128,7 +176,7 @@ class SearchFragment : Fragment() {
                     Log.d(SearchFragment::class.java.name, "search - $search")
                     search.trim().toString().let {
                         if (it.isNotEmpty()) {
-                            if (model.showSearchResult(it)) {
+                            if (searchViewModel.showSearchResult(it)) {
                                 view?.searchRecyclerView?.scrollToPosition(0)
 //                                (view?.searchRecyclerView?.adapter as? SearchResultAdapter)
 //                                        ?.submitList(null)
