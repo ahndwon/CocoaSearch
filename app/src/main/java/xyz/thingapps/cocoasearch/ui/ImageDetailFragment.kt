@@ -1,14 +1,20 @@
 package xyz.thingapps.cocoasearch.ui
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.jakewharton.rxbinding3.view.clicks
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -57,19 +63,39 @@ class ImageDetailFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_image_detail, container, false)
 
         viewModel.document?.let { document ->
-            GlideApp.with(view).load(document.imageUrl)
-                    .placeholder(R.drawable.ic_insert_photo_black_48dp)
-                    .into(view.detailImageView)
+            showImage(view.detailImageView, document.imageUrl)
         }
 
+        val siteName = viewModel.document?.displaySiteName ?: ""
+        val siteInfo = if (siteName.isBlank()) getString(R.string.no_info) else siteName
+
+        view.siteInfoTextView.text = siteInfo
         view.imageDateTextView.text = viewModel.getDocumentDate()
-        view.siteInfoTextView.text = viewModel.document?.displaySiteName
         view.imageHeightTextView.text = viewModel.document?.height?.toString()
         view.imageWidthTextView.text = viewModel.document?.width?.toString()
 
         setupButtons(view)
 
         return view
+    }
+
+    private fun showImage(imageView: ImageView, url: String) {
+        imageView.scaleType = ImageView.ScaleType.CENTER
+        GlideApp.with(imageView).load(url)
+                .placeholder(R.drawable.ic_insert_photo_black_48dp)
+                .error(R.drawable.ic_insert_photo_black_48dp)
+                .addListener(object : RequestListener<Drawable> {
+                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        imageView.scaleType = ImageView.ScaleType.FIT_XY
+                        return false
+                    }
+
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                        imageView.scaleType = ImageView.ScaleType.CENTER
+                        return false
+                    }
+                })
+                .into(imageView)
     }
 
     private fun setupButtons(view: View) {

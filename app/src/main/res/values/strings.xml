@@ -42,5 +42,6 @@
 
     <string name="sort_accuracy">정확도순</string>
     <string name="sort_recency">최신순</string>
+    <string name="no_info">정보 없음</string>
 
 </resources>

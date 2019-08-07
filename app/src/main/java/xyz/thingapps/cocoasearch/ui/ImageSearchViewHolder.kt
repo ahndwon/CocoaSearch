@@ -1,11 +1,16 @@
 package xyz.thingapps.cocoasearch.ui
 
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.BitmapTransitionOptions
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.item_search_result.view.*
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.net.Document
@@ -46,6 +51,18 @@ class ImageSearchViewHolder(view: View, private val glide: GlideRequests)
                     .load(url)
                     .centerCrop()
                     .transition(BitmapTransitionOptions.withCrossFade())
+                    .error(R.drawable.ic_insert_photo_black_48dp)
+                    .addListener(object : RequestListener<Bitmap> {
+                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                            imageView.scaleType = ImageView.ScaleType.CENTER
+                            return false
+                        }
+
+                        override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                            imageView.scaleType = ImageView.ScaleType.FIT_XY
+                            return false
+                        }
+                    })
                     .into(imageView)
         }
     }
