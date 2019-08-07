@@ -1,4 +1,3 @@
-eadme
 # Cocoa Search
 
 Image search android app using Kakao's Image API
