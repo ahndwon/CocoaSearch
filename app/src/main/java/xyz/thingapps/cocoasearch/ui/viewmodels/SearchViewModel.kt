@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch
+package xyz.thingapps.cocoasearch.ui.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData

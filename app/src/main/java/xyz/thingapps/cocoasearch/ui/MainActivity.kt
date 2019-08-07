@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch
+package xyz.thingapps.cocoasearch.ui
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
-import xyz.thingapps.cocoasearch.ui.*
+import xyz.thingapps.cocoasearch.R
 
 class MainActivity : AppCompatActivity() {
 

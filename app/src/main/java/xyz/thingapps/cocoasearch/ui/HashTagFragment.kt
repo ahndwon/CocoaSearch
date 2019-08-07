@@ -14,10 +14,10 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_hash_tag.view.*
-import xyz.thingapps.cocoasearch.HashTagViewModel
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.repository.NetworkState
+import xyz.thingapps.cocoasearch.ui.viewmodels.HashTagViewModel
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.utils.GridItemDecoration
 import xyz.thingapps.cocoasearch.utils.ServiceLocator

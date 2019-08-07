@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch
+package xyz.thingapps.cocoasearch.ui.viewmodels
 
 import android.app.Activity
 import android.app.Application
