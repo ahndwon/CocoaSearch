@@ -1,5 +1,6 @@
 package xyz.thingapps.cocoasearch.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -40,10 +41,11 @@ class SearchFragment : Fragment() {
         const val GRID_SPACING_PX = 10
         const val GRID_SIZE = 2
         const val QUERY_TIMEOUT = 500L
+        const val WINDOW_DURATION = 600L
     }
 
     private val disposeBag = CompositeDisposable()
-    lateinit var searchViewModel: SearchViewModel
+    private lateinit var searchViewModel: SearchViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -64,42 +66,55 @@ class SearchFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         val sortBar = (activity as MainActivity).findViewById<CardView>(R.id.sortBar)
-        setupSortDialog(sortBar)
+        setSortBarClick(sortBar)
         super.onActivityCreated(savedInstanceState)
     }
 
-    private fun setupSortDialog(view: View?) {
-        view?.clicks()?.throttleFirst(600L, TimeUnit.MILLISECONDS)
+    private fun setSortBarClick(sortBar: View?) {
+        sortBar?.clicks()?.throttleFirst(WINDOW_DURATION, TimeUnit.MILLISECONDS)
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe {
-                    val array = resources.getStringArray(R.array.sort_list)
-
-                    val builder = AlertDialog.Builder(view.context)
-                    builder.setItems(array) { dialog, which ->
-                        dialog.dismiss()
-                        val mainActivity = (activity as MainActivity)
-                        when (which) {
-                            0 -> {
-                                mainActivity.sortTypeSpinner.text = getString(R.string.sort_accuracy)
-                                searchViewModel.searchSort = ImageSearchApi.SORT_ACCURACY
-                            }
-                            1 -> {
-                                mainActivity.sortTypeSpinner.text = getString(R.string.sort_recency)
-                                searchViewModel.searchSort = ImageSearchApi.SORT_RECENCY
-                            }
-                        }
-                    }
-                    val dialog = builder.create()
-                    dialog.window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
-                    dialog.window?.setGravity(Gravity.TOP)
-                    val layoutParams = dialog.window?.attributes
-                    layoutParams?.let {
-                        it.x = -view.left
-                        it.y = view.bottom
-                        dialog.window?.attributes = it
-                    }
-                    dialog.show()
+                    val dialog = getSortDialog(sortBar.context)
+                    setupSortDialog(dialog, sortBar.bottom).show()
                 }?.addTo(disposeBag)
+    }
+
+    private fun setupSortDialog(dialog: AlertDialog, positionY: Int): AlertDialog {
+        return dialog.apply {
+            window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+            window?.setGravity(Gravity.TOP)
+            val layoutParams = window?.attributes
+            layoutParams?.let {
+                it.y = positionY
+                window?.attributes = it
+            }
+        }
+    }
+
+    private fun getSortDialog(context: Context): AlertDialog {
+        val array = resources.getStringArray(R.array.sort_list)
+
+        val builder =
+                AlertDialog.Builder(
+                        context,
+                        android.R.style.Theme_Material_Light_Dialog_NoActionBar
+                )
+
+        builder.setItems(array) { dialog, which ->
+            dialog.dismiss()
+            val mainActivity = (activity as MainActivity)
+            when (which) {
+                0 -> {
+                    mainActivity.sortTypeSpinner.text = getString(R.string.sort_accuracy)
+                    searchViewModel.searchSort = ImageSearchApi.SORT_ACCURACY
+                }
+                1 -> {
+                    mainActivity.sortTypeSpinner.text = getString(R.string.sort_recency)
+                    searchViewModel.searchSort = ImageSearchApi.SORT_RECENCY
+                }
+            }
+        }
+        return builder.create()
     }
 
     private fun getViewModel(): SearchViewModel {
@@ -130,7 +145,8 @@ class SearchFragment : Fragment() {
         }
 
         view.searchRecyclerView.adapter = adapter
-        view.searchRecyclerView.layoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+        view.searchRecyclerView.layoutManager =
+                StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         view.searchRecyclerView.addItemDecoration(GridItemDecoration(GRID_SPACING_PX, GRID_SIZE))
 
         searchViewModel.posts.observe(this, Observer<PagedList<Document>> {
