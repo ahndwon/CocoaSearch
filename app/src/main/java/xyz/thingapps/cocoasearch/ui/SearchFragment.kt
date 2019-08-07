@@ -37,7 +37,7 @@ class SearchFragment : Fragment() {
 
     companion object {
         const val KEY_SEARCH_WORD = "search_word"
-        const val DEFAULT_SEARCH_WORD = "kakao"
+        const val DEFAULT_SEARCH_WORD = "카카오페이"
         const val GRID_SPACING_PX = 10
         const val GRID_SIZE = 2
         const val QUERY_TIMEOUT = 500L
