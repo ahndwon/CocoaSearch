@@ -41,7 +41,7 @@ git clone https://github.com/ahndwon/CocoaSearch.git
 
 ## Configuration
 ### KakaoApiKey:
-Add the following info to `./local.properties` with the following info:
+Add the following info to `./local.properties`
 ```gradle
 kakaoApiKey="your-kakao-api-key"
 ```
