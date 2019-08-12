@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 import xyz.thingapps.cocoasearch.R
+import xyz.thingapps.cocoasearch.ui.hashtag.HashTagFragment
 import xyz.thingapps.cocoasearch.ui.imagedetail.ImageDetailFragment
 import xyz.thingapps.cocoasearch.ui.imagesearch.ImageSearchFragment
 import xyz.thingapps.cocoasearch.ui.webview.WebViewFragment

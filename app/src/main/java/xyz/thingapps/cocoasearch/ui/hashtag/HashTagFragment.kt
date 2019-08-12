@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui
+package xyz.thingapps.cocoasearch.ui.hashtag
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,7 +18,6 @@ import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.repository.NetworkState
 import xyz.thingapps.cocoasearch.ui.imagedetail.ImageDetailFragment
 import xyz.thingapps.cocoasearch.ui.imagesearch.ImageSearchResultAdapter
-import xyz.thingapps.cocoasearch.ui.viewmodels.HashTagViewModel
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.utils.GridItemDecoration
 import xyz.thingapps.cocoasearch.utils.ServiceLocator

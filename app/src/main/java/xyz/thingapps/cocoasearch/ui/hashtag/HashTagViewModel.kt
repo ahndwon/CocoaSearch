@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui.viewmodels
+package xyz.thingapps.cocoasearch.ui.hashtag
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
