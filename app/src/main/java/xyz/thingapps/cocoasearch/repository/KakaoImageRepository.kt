@@ -4,8 +4,8 @@ import androidx.annotation.MainThread
 import androidx.lifecycle.Transformations
 import androidx.paging.Config
 import androidx.paging.toLiveData
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.net.ImageSearchApi
+import xyz.thingapps.cocoasearch.vo.Document
 import java.util.concurrent.Executor
 
 

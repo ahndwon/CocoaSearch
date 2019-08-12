@@ -6,9 +6,9 @@ import androidx.lifecycle.AndroidViewModel
 import io.reactivex.Single
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.DateTimeFormatter
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.tflite.Classifier
 import xyz.thingapps.cocoasearch.tflite.ImageRecognizer
+import xyz.thingapps.cocoasearch.vo.Document
 
 class DetailViewModel(application: Application) : AndroidViewModel(application) {
     private val imageRecognizer = ImageRecognizer(application)

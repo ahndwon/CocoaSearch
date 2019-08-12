@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.net
+package xyz.thingapps.cocoasearch.vo
 
 import android.os.Parcel
 import android.os.Parcelable

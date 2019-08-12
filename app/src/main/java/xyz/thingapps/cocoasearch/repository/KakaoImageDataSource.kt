@@ -5,9 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.ItemKeyedDataSource
 import retrofit2.Call
 import retrofit2.Response
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.net.ImageSearchApi
-import xyz.thingapps.cocoasearch.net.SearchResponse
+import xyz.thingapps.cocoasearch.vo.Document
 import java.io.IOException
 import java.util.concurrent.Executor
 
@@ -50,8 +49,8 @@ class KakaoImageDataSource(
                 size = params.requestedLoadSize,
                 sort = sortType
         ).enqueue(
-                object : retrofit2.Callback<SearchResponse> {
-                    override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
+                object : retrofit2.Callback<ImageSearchApi.SearchResponse> {
+                    override fun onFailure(call: Call<ImageSearchApi.SearchResponse>, t: Throwable) {
                         retry = {
                             loadAfter(params, callback)
                         }
@@ -60,8 +59,8 @@ class KakaoImageDataSource(
                     }
 
                     override fun onResponse(
-                            call: Call<SearchResponse>,
-                            response: Response<SearchResponse>) {
+                            call: Call<ImageSearchApi.SearchResponse>,
+                            response: Response<ImageSearchApi.SearchResponse>) {
                         if (response.isSuccessful) {
                             val items = response.body()?.documents ?: emptyList()
                             retry = null

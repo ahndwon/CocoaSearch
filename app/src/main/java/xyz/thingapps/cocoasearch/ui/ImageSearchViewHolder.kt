@@ -13,8 +13,8 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.item_search_result.view.*
 import xyz.thingapps.cocoasearch.R
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.utils.GlideRequests
+import xyz.thingapps.cocoasearch.vo.Document
 
 
 class ImageSearchViewHolder(view: View, private val glide: GlideRequests)

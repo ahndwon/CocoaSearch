@@ -1,6 +1,7 @@
 package xyz.thingapps.cocoasearch.net
 
 import android.util.Log
+import com.google.gson.annotations.SerializedName
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -12,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 import xyz.thingapps.cocoasearch.BuildConfig
+import xyz.thingapps.cocoasearch.vo.Document
 
 interface ImageSearchApi {
 
@@ -22,6 +24,28 @@ interface ImageSearchApi {
             @Query("size") size: Int = 80,
             @Query("sort") sort: String = SORT_ACCURACY
     ): Call<SearchResponse>
+
+    data class SearchResponse(
+            val documents: List<Document>,
+            val meta: Meta
+    )
+
+    data class Meta(
+            @SerializedName("is_end") val isEnd: Boolean,
+            @SerializedName("pageable_count") val pageableCount: Int,
+            @SerializedName("total_count") val totalCount: Int
+    )
+
+    class ApiKeyInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response {
+            val original = chain.request()
+            val request = original.newBuilder().apply {
+                addHeader("Authorization", "KakaoAK ${BuildConfig.API_KEY}")
+            }.build()
+
+            return chain.proceed(request)
+        }
+    }
 
     companion object {
         const val SORT_ACCURACY = "accuracy"
@@ -45,17 +69,6 @@ interface ImageSearchApi {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                     .create(ImageSearchApi::class.java)
-        }
-    }
-
-    class ApiKeyInterceptor : Interceptor {
-        override fun intercept(chain: Interceptor.Chain): Response {
-            val original = chain.request()
-            val request = original.newBuilder().apply {
-                addHeader("Authorization", "KakaoAK ${BuildConfig.API_KEY}")
-            }.build()
-
-            return chain.proceed(request)
         }
     }
 }

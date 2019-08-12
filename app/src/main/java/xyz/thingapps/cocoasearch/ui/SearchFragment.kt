@@ -23,13 +23,13 @@ import io.reactivex.rxkotlin.addTo
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_search.view.*
 import xyz.thingapps.cocoasearch.R
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.net.ImageSearchApi
 import xyz.thingapps.cocoasearch.repository.NetworkState
 import xyz.thingapps.cocoasearch.ui.viewmodels.SearchViewModel
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.utils.GridItemDecoration
 import xyz.thingapps.cocoasearch.utils.ServiceLocator
+import xyz.thingapps.cocoasearch.vo.Document
 import java.util.concurrent.TimeUnit
 
 class SearchFragment : Fragment() {

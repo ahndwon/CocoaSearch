@@ -23,9 +23,9 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_image_detail.view.*
 import kotlinx.android.synthetic.main.item_tag.view.*
 import xyz.thingapps.cocoasearch.R
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.ui.viewmodels.DetailViewModel
 import xyz.thingapps.cocoasearch.utils.GlideApp
+import xyz.thingapps.cocoasearch.vo.Document
 import java.util.concurrent.TimeUnit
 
 class ImageDetailFragment : Fragment() {

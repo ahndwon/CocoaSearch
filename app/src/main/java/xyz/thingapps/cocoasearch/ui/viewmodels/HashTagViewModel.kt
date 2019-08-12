@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.net.ImageSearchApi
 import xyz.thingapps.cocoasearch.repository.KakaoImageRepository
 import xyz.thingapps.cocoasearch.repository.Listing
 import xyz.thingapps.cocoasearch.repository.NetworkState
+import xyz.thingapps.cocoasearch.vo.Document
 
 class HashTagViewModel(searchWord: String, repository: KakaoImageRepository) : ViewModel() {
     private val searchResult: MutableLiveData<Listing<Document>> = MutableLiveData()

@@ -5,9 +5,9 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import xyz.thingapps.cocoasearch.R
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.repository.NetworkState
 import xyz.thingapps.cocoasearch.utils.GlideRequests
+import xyz.thingapps.cocoasearch.vo.Document
 
 
 class SearchResultAdapter(

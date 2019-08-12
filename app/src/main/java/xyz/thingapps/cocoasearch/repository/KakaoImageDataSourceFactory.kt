@@ -2,8 +2,8 @@ package xyz.thingapps.cocoasearch.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import xyz.thingapps.cocoasearch.net.Document
 import xyz.thingapps.cocoasearch.net.ImageSearchApi
+import xyz.thingapps.cocoasearch.vo.Document
 import java.util.concurrent.Executor
 
 
