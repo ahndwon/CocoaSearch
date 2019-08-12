@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.ui.imagedetail.ImageDetailFragment
 import xyz.thingapps.cocoasearch.ui.imagesearch.ImageSearchFragment
+import xyz.thingapps.cocoasearch.ui.webview.WebViewFragment
 
 class MainActivity : AppCompatActivity() {
 

@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.item_tag.view.*
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.ui.FragmentLifeListener
 import xyz.thingapps.cocoasearch.ui.HashTagFragment
-import xyz.thingapps.cocoasearch.ui.WebViewFragment
+import xyz.thingapps.cocoasearch.ui.webview.WebViewFragment
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.vo.Document
 import java.util.concurrent.TimeUnit

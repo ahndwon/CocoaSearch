@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui
+package xyz.thingapps.cocoasearch.ui.webview
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
@@ -13,6 +13,7 @@ import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_web_view.view.*
 import xyz.thingapps.cocoasearch.R
+import xyz.thingapps.cocoasearch.ui.FragmentLifeListener
 
 class WebViewFragment : Fragment() {
 
