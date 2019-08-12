@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/card_view_margin"
-    app:cardCornerRadius="16dp">
+    xmlns:bind="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/searchImageView"
+    <data>
+
+        <variable
+            name="document"
+            type="xyz.thingapps.cocoasearch.vo.Document" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:contentDescription="@string/description_search_results"
-        android:scaleType="centerCrop"
-        />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/card_view_margin"
+        app:cardCornerRadius="16dp">
 
-</androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/searchImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/description_search_results"
+            app:loadImageWithCenterCrop="@{document.imageUrl}"
+            bind:itemHeight="@{document.height}"
+            bind:itemWidth="@{document.width}" />
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
