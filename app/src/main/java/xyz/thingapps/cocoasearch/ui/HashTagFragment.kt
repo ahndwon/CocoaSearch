@@ -16,6 +16,8 @@ import io.reactivex.disposables.CompositeDisposable
 import kotlinx.android.synthetic.main.fragment_hash_tag.view.*
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.repository.NetworkState
+import xyz.thingapps.cocoasearch.ui.imagedetail.ImageDetailFragment
+import xyz.thingapps.cocoasearch.ui.imagesearch.ImageSearchResultAdapter
 import xyz.thingapps.cocoasearch.ui.viewmodels.HashTagViewModel
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.utils.GridItemDecoration
@@ -66,7 +68,7 @@ class HashTagFragment : Fragment() {
 
     private fun initAdapter(view: View) {
         val glide = GlideApp.with(this)
-        val adapter = SearchResultAdapter(glide) {
+        val adapter = ImageSearchResultAdapter(glide) {
             model.retry()
         }
 

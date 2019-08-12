@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui.viewmodels
+package xyz.thingapps.cocoasearch.ui.imagesearch
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -11,11 +11,11 @@ import xyz.thingapps.cocoasearch.repository.KakaoImageRepository
 import xyz.thingapps.cocoasearch.repository.NetworkState
 import xyz.thingapps.cocoasearch.vo.Document
 
-class SearchViewModel(private val repository: KakaoImageRepository) : ViewModel() {
+class ImageSearchViewModel(private val repository: KakaoImageRepository) : ViewModel() {
     private val searchWord = MutableLiveData<String>()
     private val searchResult =
             Transformations.map(searchWord) {
-                Log.d(SearchViewModel::class.java.name, "searchSort : $searchSort")
+                Log.d(ImageSearchViewModel::class.java.name, "searchSort : $searchSort")
                 repository.imageSearchResult(it, searchSort, PAGE_SIZE)
             }
 

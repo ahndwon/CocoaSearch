@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 import xyz.thingapps.cocoasearch.R
+import xyz.thingapps.cocoasearch.ui.imagedetail.ImageDetailFragment
+import xyz.thingapps.cocoasearch.ui.imagesearch.ImageSearchFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, SearchFragment())
+                .replace(R.id.fragmentContainer, ImageSearchFragment())
                 .commit()
     }
 

@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui
+package xyz.thingapps.cocoasearch.ui.imagesearch
 
 import android.content.Context
 import android.os.Bundle
@@ -25,14 +25,15 @@ import kotlinx.android.synthetic.main.fragment_search.view.*
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.net.ImageSearchApi
 import xyz.thingapps.cocoasearch.repository.NetworkState
-import xyz.thingapps.cocoasearch.ui.viewmodels.SearchViewModel
+import xyz.thingapps.cocoasearch.ui.MainActivity
+import xyz.thingapps.cocoasearch.ui.imagedetail.ImageDetailFragment
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.utils.GridItemDecoration
 import xyz.thingapps.cocoasearch.utils.ServiceLocator
 import xyz.thingapps.cocoasearch.vo.Document
 import java.util.concurrent.TimeUnit
 
-class SearchFragment : Fragment() {
+class ImageSearchFragment : Fragment() {
 
     companion object {
         const val KEY_SEARCH_WORD = "search_word"
@@ -44,7 +45,7 @@ class SearchFragment : Fragment() {
     }
 
     private val disposeBag = CompositeDisposable()
-    private lateinit var searchViewModel: SearchViewModel
+    private lateinit var searchViewModel: ImageSearchViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -116,7 +117,7 @@ class SearchFragment : Fragment() {
         return builder.create()
     }
 
-    private fun getViewModel(): SearchViewModel {
+    private fun getViewModel(): ImageSearchViewModel {
         return ViewModelProviders.of(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 val repo =
@@ -124,15 +125,15 @@ class SearchFragment : Fragment() {
                                 .getRepository()
 
                 @Suppress("UNCHECKED_CAST")
-                return SearchViewModel(repo) as T
+                return ImageSearchViewModel(repo) as T
             }
-        })[SearchViewModel::class.java]
+        })[ImageSearchViewModel::class.java]
     }
 
     private fun initAdapter(view: View) {
         val glide = GlideApp.with(this)
 
-        val adapter = SearchResultAdapter(glide) {
+        val adapter = ImageSearchResultAdapter(glide) {
             searchViewModel.retry()
         }
 
@@ -188,12 +189,12 @@ class SearchFragment : Fragment() {
                 ?.debounce(QUERY_TIMEOUT, TimeUnit.MILLISECONDS)
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({ search ->
-                    Log.d(SearchFragment::class.java.name, "search - $search")
+                    Log.d(ImageSearchFragment::class.java.name, "search - $search")
                     search.trim().toString().let {
                         if (it.isNotEmpty()) {
                             if (searchViewModel.showSearchResult(it)) {
                                 view?.searchRecyclerView?.scrollToPosition(0)
-//                                (view?.searchRecyclerView?.adapter as? SearchResultAdapter)
+//                                (view?.searchRecyclerView?.adapter as? ImageSearchResultAdapter)
 //                                        ?.submitList(null)
                             }
                         }

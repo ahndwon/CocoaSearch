@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui
+package xyz.thingapps.cocoasearch.ui.imagesearch
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
@@ -6,11 +6,12 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import xyz.thingapps.cocoasearch.R
 import xyz.thingapps.cocoasearch.repository.NetworkState
+import xyz.thingapps.cocoasearch.ui.NetworkStateItemViewHolder
 import xyz.thingapps.cocoasearch.utils.GlideRequests
 import xyz.thingapps.cocoasearch.vo.Document
 
 
-class SearchResultAdapter(
+class ImageSearchResultAdapter(
         private val glide: GlideRequests,
         private val retryCallback: () -> Unit)
     : PagedListAdapter<Document, RecyclerView.ViewHolder>(POST_COMPARATOR) {

@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui
+package xyz.thingapps.cocoasearch.ui.imagesearch
 
 import android.graphics.Bitmap
 import android.view.LayoutInflater
