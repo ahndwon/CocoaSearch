@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui.viewmodels
+package xyz.thingapps.cocoasearch.ui.imagedetail
 
 import android.app.Activity
 import android.app.Application
@@ -10,7 +10,7 @@ import xyz.thingapps.cocoasearch.tflite.Classifier
 import xyz.thingapps.cocoasearch.tflite.ImageRecognizer
 import xyz.thingapps.cocoasearch.vo.Document
 
-class DetailViewModel(application: Application) : AndroidViewModel(application) {
+class ImageDetailViewModel(application: Application) : AndroidViewModel(application) {
     private val imageRecognizer = ImageRecognizer(application)
     var document: Document? = null
 

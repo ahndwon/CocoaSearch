@@ -1,4 +1,4 @@
-package xyz.thingapps.cocoasearch.ui
+package xyz.thingapps.cocoasearch.ui.imagedetail
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -23,7 +23,9 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_image_detail.view.*
 import kotlinx.android.synthetic.main.item_tag.view.*
 import xyz.thingapps.cocoasearch.R
-import xyz.thingapps.cocoasearch.ui.viewmodels.DetailViewModel
+import xyz.thingapps.cocoasearch.ui.FragmentLifeListener
+import xyz.thingapps.cocoasearch.ui.HashTagFragment
+import xyz.thingapps.cocoasearch.ui.WebViewFragment
 import xyz.thingapps.cocoasearch.utils.GlideApp
 import xyz.thingapps.cocoasearch.vo.Document
 import java.util.concurrent.TimeUnit
@@ -44,13 +46,13 @@ class ImageDetailFragment : Fragment() {
         }
     }
 
-    private lateinit var viewModel: DetailViewModel
+    private lateinit var viewModel: ImageDetailViewModel
     private val disposeBag = CompositeDisposable()
     var listener: FragmentLifeListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(DetailViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ImageDetailViewModel::class.java)
         viewModel.document = arguments?.getParcelable<Document>(SEARCH_DOCUMENT)
 
         listener?.onBirth()
